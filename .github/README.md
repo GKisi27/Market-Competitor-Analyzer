@@ -7,34 +7,35 @@ This directory contains GitHub Actions workflow configurations.
 ```
 .github/
 └── workflows/
-    ├── ci.yml              # Continuous Integration
-    ├── cd-staging.yml      # Deploy to staging
-    ├── cd-production.yml   # Deploy to production
-    └── tests.yml           # Run test suite
+    ├── ci.yml              # Continuous Integration (all branches)
+    ├── cd-staging.yml      # Deploy to staging (stage branch)
+    └── cd-prod.yml         # Deploy to production (prod branch)
 ```
 
 ## 🔄 Pipeline Overview
 
 ```
-Push → Lint → Test → Build → Deploy
+Push to dev    → CI (lint, test, build)
+Push to stage  → CI + Deploy to Staging
+Push to prod   → CI + Deploy to Production
 ```
 
-### Stages
+## 📋 Workflows
 
-1. **CI (ci.yml)**: Runs on every push
-   - Linting (ESLint, Flake8)
-   - Unit tests
-   - Build verification
+### CI (`ci.yml`)
+- **Triggers:** Push/PR to `dev`, `stage`, `prod`
+- **Jobs:** Lint → Test Backend → Test Frontend → Build Docker
 
-2. **Staging Deploy (cd-staging.yml)**: On merge to `develop`
-   - Deploy to AWS staging
+### Staging Deploy (`cd-staging.yml`)
+- **Triggers:** Push to `stage`
+- **Actions:** Build → Push to ECR → Deploy to AWS
 
-3. **Production Deploy (cd-production.yml)**: On merge to `main`
-   - Deploy to AWS production
+### Production Deploy (`cd-prod.yml`)
+- **Triggers:** Push to `prod`
+- **Actions:** Build → Push to ECR → Deploy to AWS → Smoke Tests
 
 ## 📝 For Interns
 
-Understanding CI/CD:
 1. Every push triggers automated checks
 2. Failing tests block merges
-3. Successful builds auto-deploy
+3. Successful builds auto-deploy to respective environments
