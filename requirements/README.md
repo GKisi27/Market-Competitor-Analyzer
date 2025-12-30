@@ -1,36 +1,41 @@
 # Requirements
 
-All Python dependencies organized by component and environment.
+All Python dependencies organized by environment.
 
 ## 📁 Structure
 
 ```
 requirements/
-├── backend-dev.txt       # Backend + dev/test tools
-├── backend-stage.txt     # Backend + minimal testing
-├── backend-prod.txt      # Backend only (no dev tools)
-├── workers-dev.txt       # Celery workers + dev tools
-├── workers-stage.txt     # Celery workers + testing
-├── workers-prod.txt      # Celery workers only
-├── crawler-dev.txt       # Crawl4AI + dev tools
-├── crawler-stage.txt     # Crawl4AI + testing
-└── crawler-prod.txt      # Crawl4AI only
+├── dev.txt      # All deps + dev/test/lint tools
+├── stage.txt    # All deps + minimal testing
+└── prod.txt     # All deps only (no dev tools)
 ```
 
 ## 🔧 Usage
 
 ```bash
-# Install for development
-pip install -r requirements/backend-dev.txt
+# Development
+pip install -r requirements/dev.txt
 
-# Install for production
-pip install -r requirements/backend-prod.txt
+# Staging
+pip install -r requirements/stage.txt
+
+# Production
+pip install -r requirements/prod.txt
 ```
 
-## 📦 Environment Differences
+## 📦 What's Included
 
-| Environment | Testing | Linting | Monitoring |
-|-------------|---------|---------|------------|
-| **dev** | ✅ Full | ✅ Full | ❌ |
-| **stage** | ✅ Basic | ❌ | ❌ |
-| **prod** | ❌ | ❌ | ✅ Optional |
+All files include dependencies for:
+- FastAPI (backend)
+- Celery + Redis (workers)
+- Crawl4AI + Playwright (crawler)
+
+## 🔍 Environment Differences
+
+| Package | Dev | Stage | Prod |
+|---------|-----|-------|------|
+| pytest | ✅ | ✅ | ❌ |
+| black, flake8 | ✅ | ❌ | ❌ |
+| flower (Celery UI) | ✅ | ✅ | ❌ |
+| sentry-sdk | ❌ | ❌ | optional |
