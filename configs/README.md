@@ -6,27 +6,30 @@ This directory contains environment-specific configuration files.
 
 ```
 configs/
-├── dev/           # Development environment
-├── staging/       # Staging environment
-└── prod/          # Production environment
+├── dev/
+│   └── dev.properties       # Development environment
+├── staging/
+│   └── stage.properties     # Staging environment
+└── prod/
+    └── prod.properties      # Production environment
 ```
 
 ## 🔐 12-Factor App: Environment Variables
 
 Following the 12-factor methodology, configurations are:
 - Stored as environment variables
-- Never committed to version control
-- Different per environment
+- Different per environment (dev/stage/prod)
+- **Never commit actual secrets!**
 
-## 📄 Files Per Environment
+## 📦 Requirements Files (per environment)
 
-Each environment folder will contain:
-- `.env.example` - Template (committed)
-- `.env` - Actual values (NOT committed)
+Each service has environment-specific requirements:
+- `requirements-dev.txt` - Includes testing & linting tools
+- `requirements-stage.txt` - Includes minimal testing
+- `requirements-prod.txt` - Production only, no dev tools
 
 ## 📝 For Interns
 
-**Never commit actual credentials!**
-1. Copy `.env.example` to `.env`
+1. Copy the appropriate `.properties` file
 2. Fill in your local development values
 3. Ask team lead for staging/prod values if needed
