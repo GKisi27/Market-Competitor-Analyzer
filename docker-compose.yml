@@ -1,0 +1,40 @@
+# Docker Compose - Development
+# Full service stack for local development
+
+version: '3.8'
+
+services:
+  # Frontend service placeholder
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    # ports, environment, volumes to be configured
+
+  # Backend API placeholder
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    # ports, environment, volumes to be configured
+
+  # Celery worker placeholder
+  worker:
+    build:
+      context: .
+      dockerfile: docker/workers/Dockerfile
+    # environment, volumes to be configured
+
+  # Redis broker
+  redis:
+    image: redis:7-alpine
+    # ports, volumes to be configured
+
+  # Database placeholder (PostgreSQL or MongoDB)
+  # Uncomment when database choice is finalized
+  # db:
+  #   image: postgres:15-alpine
+  #   OR
+  #   image: mongo:6
+
+# Networks and volumes to be configured
