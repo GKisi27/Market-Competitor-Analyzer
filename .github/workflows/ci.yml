@@ -1,0 +1,51 @@
+# Continuous Integration Pipeline
+# Runs on every push and pull request
+
+name: CI
+
+on:
+  push:
+    branches: [dev, stage, prod]
+  pull_request:
+    branches: [dev, stage, prod]
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO: Add linting steps
+      # - Backend: flake8, black, mypy
+      # - Frontend: eslint, prettier
+
+  test-backend:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO: Add pytest steps
+      # - Setup Python 3.11
+      # - Install requirements/dev.txt
+      # - Run pytest
+
+  test-frontend:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO: Add Jest/Playwright steps
+      # - Setup Node 20
+      # - npm install
+      # - npm test
+
+  build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: [lint, test-backend, test-frontend]
+    steps:
+      - uses: actions/checkout@v4
+      # TODO: Add docker build steps
+      # - Build frontend image
+      # - Build backend image
+      # - Build workers image

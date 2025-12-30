@@ -1,0 +1,24 @@
+# Deploy to Staging
+# Triggered on push to stage branch
+
+name: Deploy to Staging
+
+on:
+  push:
+    branches: [stage]
+
+jobs:
+  deploy:
+    name: Deploy to AWS Staging
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      
+      # TODO: Implement deployment steps
+      # - Configure AWS credentials
+      # - Login to ECR
+      # - Build and push Docker images
+      # - Update ECS service / Deploy to EC2
+      # - Run database migrations
+      # - Notify team on Slack
