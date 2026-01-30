@@ -1,0 +1,35 @@
+[
+  {
+    "job_id": 1,
+    "job_title": "Python Backend Developer",
+    "company": "TechNova Solutions",
+    "location": "Bhaktapur",
+    "experience_level": "Mid",
+    "salary_lpa": 12,
+    "job_type": "Full-time",
+    "tech_stack": ["Python", "Django", "PostgreSQL", "Docker"],
+    "posted_date": "2026-01-20"
+  },
+  {
+    "job_id": 2,
+    "job_title": "Data Analyst",
+    "company": "InsightWorks",
+    "location": "Kathmandu",
+    "experience_level": "Entry",
+    "salary_lpa": 6,
+    "job_type": "Full-time",
+    "tech_stack": ["Python", "Pandas", "SQL", "Excel"],
+    "posted_date": "2026-01-18"
+  },
+  {
+    "job_id": 3,
+    "job_title": "Frontend Developer",
+    "company": "UIX Labs",
+    "location": "Remote",
+    "experience_level": "Mid",
+    "salary_lpa": 10,
+    "job_type": "Contract",
+    "tech_stack": ["JavaScript", "React", "HTML", "CSS"],
+    "posted_date": "2026-01-15"
+  }
+]
