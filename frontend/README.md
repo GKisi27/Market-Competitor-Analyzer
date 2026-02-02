@@ -1,54 +1,16 @@
-# Frontend (Next.js/React)
+# React + Vite
 
-This directory contains the Next.js/React frontend application.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 📁 Structure
+Currently, two official plugins are available:
 
-```
-frontend/
-├── src/
-│   ├── components/    # Reusable UI components
-│   ├── pages/         # Next.js pages (routes)
-│   ├── hooks/         # Custom React hooks
-│   ├── services/      # API service calls
-│   ├── utils/         # Utility functions
-│   ├── styles/        # Global styles and CSS modules
-│   ├── context/       # React context providers
-│   ├── types/         # TypeScript type definitions
-│   └── lib/           # Third-party library configs
-├── public/
-│   ├── images/        # Static images
-│   └── icons/         # Icon assets
-└── tests/
-    ├── unit/          # Unit tests (Jest)
-    ├── integration/   # Integration tests
-    └── e2e/           # End-to-end tests (Playwright/Cypress)
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🎯 Key Responsibilities
+## React Compiler
 
-- User interface for competitor analysis dashboard
-- Authentication and user management UI
-- Data visualization components
-- Real-time job status monitoring
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 📦 Key Dependencies (To Be Added)
+## Expanding the ESLint configuration
 
-- Next.js
-- React
-- TypeScript
-- Axios (API calls)
-- Chart.js or Recharts (data visualization)
-- TailwindCSS or styled-components
-
-## 🧪 Testing
-
-- **Unit Tests**: Jest + React Testing Library
-- **E2E Tests**: Playwright or Cypress
-
-## 📝 For Interns
-
-Start with:
-1. Understanding the component structure in `src/components/`
-2. Learning how pages work in `src/pages/`
-3. Review API service patterns in `src/services/`
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
