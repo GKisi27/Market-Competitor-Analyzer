@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className='bg-[#141A28] w-87.5 h-10 p-3 rounded-lg flex justify-between items-center '> 
             {/* <p className='text-gray-500'>Search</p> */}
             <input className='text-white w-4/5 outline-none'
-            placeholder='search'
+            placeholder='Search'
 
              onChange={(e)=>{
                 setSearchtext(e.target.value)

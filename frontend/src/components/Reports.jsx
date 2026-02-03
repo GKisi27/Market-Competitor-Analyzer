@@ -13,7 +13,7 @@ const Reports = () => {
       <p className="mb-1">key performance</p>
 
       {/* section where price index gap and cmpetitors are shhown */}
-      <div className="flex justify-between items-center gap-15">
+      <div className="flex justify-between items-center gap-8">
         {/* price index card */}
         <Link
           to="/price-index"
