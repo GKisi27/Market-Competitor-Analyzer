@@ -5,6 +5,7 @@ import PriceIndex from './pages/PriceIndex'
 import GapAnalysis from './pages/GapAnalysis'
 import Competitors from './pages/Competitors'
 import CompetitorsDetails from './pages/CompetitorsDetails'
+import Profile from './pages/Profile'
 
 const App = () => {
   return (
@@ -12,9 +13,11 @@ const App = () => {
        <Routes>
         <Route path='/' element ={<Dashboard/>}/>
         <Route path='/price-index' element={<PriceIndex/>} />
+        <Route path='/Profile' element={<Profile/>} />
         <Route path='/gap-analysis' element ={<GapAnalysis/>} />
         <Route path='/competitors' element = {<Competitors/>} />
         <Route path='competitors:id' element = {<CompetitorsDetails/>} /> 
+
        </Routes>
     </div>
   )
