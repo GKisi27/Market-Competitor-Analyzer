@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import CompetitorDetail from "../components/CompetitorDetail";
-import TopCourses from "../components/TopCourses";
+import CompetitorDetail from "../components/competitorsDetails/CompetitorDetail";
+import TopCourses from "../components/competitorsDetails/TopCourses";
 
 const CompetitorsDetails = () => {
   return (

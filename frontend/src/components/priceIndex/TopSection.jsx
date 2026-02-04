@@ -16,19 +16,19 @@ const TopSection = () => {
         </div>
 
         <div className="flex justify-between items-center gap-5">
-          <div className="flex flex-col justify-center  items-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
+          <div className="flex flex-col justify-center  text-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
             <h2 className="text-4xl font-bold">98.8</h2>
             <p className="text-normal">price index</p>
           </div>
-          <div className="flex flex-col justify-center  items-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
+          <div className="flex flex-col justify-center  text-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
             <h2 className="text-4xl font-bold">RS.25000</h2>
             <p className="text-normal">our Average Course Price</p>
           </div>
-          <div className="flex flex-col justify-center  items-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
+          <div className="flex flex-col justify-center  text-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
             <h2 className="text-4xl font-bold">5</h2>
             <p className="text-normal">Courses Over Market</p>
           </div>
-          <div className="flex flex-col justify-center  items-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
+          <div className="flex flex-col justify-center  text-center rounded-lg w-1/4 h-40 bg-[#1B2537]">
             <h2 className="text-4xl font-bold">10</h2>
             <p className="text-normal">Courses</p>
           </div>

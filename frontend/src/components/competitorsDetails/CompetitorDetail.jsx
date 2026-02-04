@@ -9,9 +9,9 @@ import {
 const CompetitorDetail = () => {
   return (
     <div>
-      <div className="mt-[60px] bg-[#1B2537] h-[300px] rounded-lg p-6 mx-15 text-white flex items-center">
+      <div className="mt-15 bg-[#1B2537] h-75 rounded-lg p-6 mx-15 text-white flex items-center">
         <div className="flex items-center gap-4">
-          <h1 className="h-[150px] w-[150px] bg-gray-300 rounded-lg flex items-center justify-center text-black">
+          <h1 className="h-37.5 w-37.5 bg-gray-300 rounded-lg flex items-center justify-center text-black">
             Logo
           </h1>
           <div>

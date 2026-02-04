@@ -1,6 +1,6 @@
 import React from 'react'
-import PriceChart from './PriceChart'
-import GapChart from './GapChart'
+import PriceChart from '../PriceChart'
+import GapChart from '../GapChart'
 
 const ChartsGroup = () => {
   return (

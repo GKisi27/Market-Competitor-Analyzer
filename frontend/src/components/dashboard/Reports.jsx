@@ -19,10 +19,10 @@ const Reports = () => {
           to="/price-index"
           className="bg-[#1B2537] w-1/3 h-35 px-10 py-5 rounded-lg flex justify-between place-items-start"
         >
-          <div className="flex flex-col items-start">
-            <p className=" text-lg leading-8 ">price index</p>
+          <div className="flex flex-col w-full text-start">
+            <p className=" text-lg leading-8 text-left ">price index</p>
             <h2 className="text-3xl font-bold">70.99</h2>
-            <p className="text-gray-500">According to Market</p>
+            <p className="text-gray-500 ">According Market</p>
           </div>
 
           <div className="bg-[#025E90] p-2 rounded text-white">
@@ -30,7 +30,7 @@ const Reports = () => {
           </div>
         </Link>
 
-     {/* gap analysis card */}
+        {/* gap analysis card */}
         <Link
           to="/gap-analysis"
           className="bg-[#1B2537] w-1/3 h-35 px-10 py-5 rounded-lg flex justify-between place-items-start"
@@ -46,7 +46,7 @@ const Reports = () => {
           </div>
         </Link>
 
-     {/* competitors caard section */}
+        {/* competitors caard section */}
         <Link
           to="/competitors"
           className="bg-[#1B2537] w-1/3 h-35 px-10 py-5 rounded-lg flex justify-between place-items-start"

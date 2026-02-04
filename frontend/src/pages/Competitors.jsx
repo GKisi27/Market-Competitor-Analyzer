@@ -1,8 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Reports from '../components/Reports'
-import CompetitorReport from '../components/CompetitorReport'
-import CompetitorList from '../components/CompetitorList'
+import CompetitorReport from '../components/competitors/CompetitorReport'
+import CompetitorList from '../components/competitors/CompetitorList'
 
 const Competitors = () => {
   return (

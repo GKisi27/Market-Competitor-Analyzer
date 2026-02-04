@@ -23,7 +23,7 @@ const Navbar = () => {
 }} className='h-full w-full' src={logoMca} alt="" />
         
         </div>
-        <div className='bg-[#141A28] w-87.5 h-10 p-3 rounded-lg flex justify-between items-center '> 
+        <form onSubmit={searchHandler} className='bg-[#141A28] w-87.5 h-10 p-3 rounded-lg flex justify-between items-center '> 
             {/* <p className='text-gray-500'>Search</p> */}
             <input className='text-white w-4/5 outline-none'
             placeholder='Search'
@@ -33,9 +33,9 @@ const Navbar = () => {
 
              }}
             value={searchtext} type="text" />
-            <button onClick={searchHandler} > <FontAwesomeIcon className='text-lg text-gray-500 active:scale-110' icon={faMagnifyingGlass} /></button>
+            <button type='submit' > <FontAwesomeIcon className='text-lg text-gray-500 active:scale-110' icon={faMagnifyingGlass} /></button>
 
-        </div>
+        </form>
 
         <div className='text-white flex justify-between items-center gap-3.5 '>
             <FontAwesomeIcon className='text-2xl' icon={faFilter} />
