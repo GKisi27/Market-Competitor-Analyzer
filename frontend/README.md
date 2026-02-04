@@ -1,16 +1,97 @@
-# React + Vite
+# Market Competitor Analyzer — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React web application for the **Market Competitor Analyzer** project. It provides dashboards, competitor insights, price index, gap analysis, and user authentication.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** — UI library
+- **Vite 7** — build tool and dev server
+- **React Router DOM 7** — client-side routing
+- **Tailwind CSS 4** — styling
+- **Chart.js** & **react-chartjs-2** — charts and visualizations
+- **Font Awesome** — icons
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Node.js** (v18+ recommended)
+- **npm** (or yarn/pnpm)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173` (or the port Vite prints in the terminal).
+
+### Build for production
+
+```bash
+npm run build
+```
+
+Output is written to the `dist/` folder.
+
+### Preview production build locally
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+frontend/
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images, SVGs
+│   ├── components/      # Reusable UI components
+│   │   ├── competitors/       # Competitor list & report
+│   │   ├── competitorsDetails/
+│   │   ├── dashboard/        # Charts, reports, welcome, word cloud
+│   │   ├── gapAnalysis/
+│   │   ├── homepage/        # Hero, nav, footer
+│   │   ├── priceIndex/
+│   │   └── Profile/
+│   ├── pages/           # Route-level pages
+│   ├── App.jsx          # Root component & routes
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+## Routes
+
+| Path                | Page             | Description                    |
+|---------------------|------------------|--------------------------------|
+| `/`                 | Homepage         | Landing page                   |
+| `/login`            | Login            | User login                     |
+| `/signup`           | Sign Up          | User registration              |
+| `/dashboard`        | Dashboard        | Overview and charts            |
+| `/price-index`      | Price Index      | Price index views              |
+| `/gap-analysis`     | Gap Analysis     | Gap analysis charts            |
+| `/competitors`      | Competitors      | Competitor list                |
+| `/competitors-details` | Competitors Details | Competitor detail view   |
+| `/Profile`          | Profile          | User profile and settings      |
+
+## Integration
+
+This frontend is intended to work with the **Market Competitor Analyzer** backend API. Configure the API base URL in your environment or in the app’s API client as needed.
+
+For Docker-based deployment, see the root `docker/` and `docker-compose.yml` in the project root.
