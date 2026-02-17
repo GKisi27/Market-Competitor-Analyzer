@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Digital Marketing",
+        "url": "https://www.evolveithub.com/course/comprehensive-digital-marketing-course",
+        "price": "15000"
+    },
+    {
+        "title": "Web Development Using Laravel",
+        "url": "https://www.evolveithub.com/course/advanced-excel-techniques-and-data-analysis",
+        "price": "15000"
+    },
+    {
+        "title": "PowerBI for Data Analysis and Visualization",
+        "url": "https://www.evolveithub.com/course/power-bi-for-data-analysis-and-visualization",
+        "price": "15000"
+    },
+    {
+        "title": "Advance Java",
+        "url": "https://www.evolveithub.com/course/advance-java",
+        "price": "15000"
+    },
+    {
+        "title": "Data Science With Python",
+        "url": "https://www.evolveithub.com/course/data-science-with-python",
+        "price": "17000"
+    },
+    {
+        "title": "Programming using Core Java",
+        "url": "https://www.evolveithub.com/course/-programming-using-core-java",
+        "price": "15000"
+    },
+    {
+        "title": "MEAN stack Development",
+        "url": "https://www.evolveithub.com/course/mean-stack-development",
+        "price": "15000"
+    },
+    {
+        "title": "Mobile Development Using Flutter",
+        "url": "https://www.evolveithub.com/course/mobile-development-using-flutter",
+        "price": "15000"
+    },
+    {
+        "title": "MERN Stack Development",
+        "url": "https://www.evolveithub.com/course/mern-stack-development-",
+        "price": "15000"
+    },
+    {
+        "title": "Web Development Using Laravel",
+        "url": "https://www.evolveithub.com/course/web-development-using-laravel",
+        "price": "15000"
+    },
+    {
+        "title": "Web Development Using Django Framework",
+        "url": "https://www.evolveithub.com/course/web-development-using-django-framework",
+        "price": "15000"
+    }
+]
