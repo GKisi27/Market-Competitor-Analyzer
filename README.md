@@ -84,3 +84,46 @@ Each folder contains a `README.md` explaining:
 ## 📄 License
 
 *To be determined*
+## 🏃‍♂️ How to Run the Project (Local Development)
+
+### 1. Frontend (React / Vite)
+The frontend is located in the root directory and uses Vite.
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+The frontend will typically run on `http://localhost:5173`.
+
+### 2. Backend (FastAPI)
+The backend requires setting up a Python environment and running the FastAPI server.
+
+```bash
+# Using Conda (Recommended based on user preferences)
+conda create -n WebCrawlerEnv python=3.10  # If not created
+conda activate WebCrawlerEnv
+
+# Install requirements
+pip install -r requirements/dev.txt
+
+# Run the FastAPI server in the background/terminal
+# Assuming the entrypoint is in backend/app/main.py (adjust if needed)
+uvicorn backend.app.main:app --reload --port 8000
+```
+The backend API docs will be available at `http://localhost:8000/docs`.
+
+### 3. Crawler Worker (Crawl4AI)
+The crawler runs separately.
+
+```bash
+conda activate CrawlerMode
+
+# Install requirements
+pip install -r requirements/dev.txt
+
+# Run the crawler script (example)
+python crawler/run_scraper.py
+```
