@@ -1,0 +1,79 @@
+[
+    {
+        "title": "Flutter",
+        "url": "https://digitalpathshalanepal.com/courses/flutter",
+        "price": "₹999",
+        "duration": "30 Days",
+        "students": ""
+    },
+    {
+        "title": "MERNStack",
+        "url": "https://digitalpathshalanepal.com/courses/mern-stack-training-in-nepal",
+        "price": "₹1499",
+        "duration": "75 Days",
+        "students": ""
+    },
+    {
+        "title": "ReactNative",
+        "url": "https://digitalpathshalanepal.com/courses/react-native-training-in-nepal",
+        "price": "₹1499",
+        "duration": "45 Days",
+        "students": ""
+    },
+    {
+        "title": "ReactJS",
+        "url": "https://digitalpathshalanepal.com/courses/react-js-training-in-nepal",
+        "price": "₹999",
+        "duration": "30 Days",
+        "students": ""
+    },
+    {
+        "title": "WebDevelopmentBootcamp",
+        "url": "https://digitalpathshalanepal.com/courses/web-development-training-in-nepal",
+        "price": "₹1499",
+        "duration": "75 Days",
+        "students": ""
+    },
+    {
+        "title": "AI/ML",
+        "url": "https://digitalpathshalanepal.com/courses/ai-ml-training-in-nepal",
+        "price": "₹4000",
+        "duration": "4 Months",
+        "students": ""
+    },
+    {
+        "title": "Node.js",
+        "url": "https://digitalpathshalanepal.com/courses/node-js-training-in-nepal",
+        "price": "₹999",
+        "duration": "30 Days",
+        "students": ""
+    },
+    {
+        "title": "FullStackSaaSDevelopment",
+        "url": "https://digitalpathshalanepal.com/courses/full-stack-saas-development-training-in-nepal",
+        "price": "₹2000",
+        "duration": "Real outcomes. Professional guidance. Lifetime support.",
+        "students": ""
+    },
+    {
+        "title": "DigitalMarketing",
+        "url": "https://digitalpathshalanepal.com/courses/digital-marketing-training-in-nepal",
+        "price": "₹2000",
+        "duration": "60 Days",
+        "students": ""
+    },
+    {
+        "title": "Next.js",
+        "url": "https://digitalpathshalanepal.com/courses/next-js-training-in-nepal",
+        "price": "₹999",
+        "duration": "30 Days",
+        "students": ""
+    },
+    {
+        "title": "LifetimeFreeat999/-",
+        "url": "https://digitalpathshalanepal.com/courses/lifetime-free-at-999-",
+        "price": "₹999",
+        "duration": "Lifetime Free at 999/- - Professional IT Training | Digital Pathshala",
+        "students": ""
+    }
+]
