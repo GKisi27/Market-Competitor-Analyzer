@@ -7,7 +7,7 @@ BASE_URL = "https://www.evolveithub.com"
 COURSES_URL = f"{BASE_URL}/courses"
 
 
-async def extract_courses():
+async def extract_evolve():
     courses = []
 
     async with AsyncWebCrawler() as crawler:
@@ -54,7 +54,7 @@ async def extract_courses():
 
 
 async def main():
-    courses = await extract_courses()
+    courses = await extract_evolve()
 
     with open("evolveithub_courses.json", "w", encoding="utf-8") as f:
         json.dump(courses, f, indent=4, ensure_ascii=False)

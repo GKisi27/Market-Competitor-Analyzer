@@ -19,7 +19,7 @@ def clean_text(text):
     return " ".join(text.split()) if text else None
 
 
-async def scrape_course(crawler, url):
+async def extract_letslearn(crawler, url):
     result = await crawler.arun(url=url)
     soup = BeautifulSoup(result.html, "lxml")
 
@@ -47,15 +47,15 @@ async def main():
 
     async with AsyncWebCrawler() as crawler:
         for url in COURSE_URLS:
-            print(f"🔍 Scraping: {url}")
-            course_data = await scrape_course(crawler, url)
+            print(f"Scraping: {url}")
+            course_data = await extract_letslearn(crawler, url)
             courses.append(course_data)
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(courses, f, indent=4, ensure_ascii=False)
 
-    print(f"\n✅ Scraped {len(courses)} courses")
-    print(f"📁 Saved to {OUTPUT_FILE}")
+    print(f"\n Scraped {len(courses)} courses")
+    print(f"Saved to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

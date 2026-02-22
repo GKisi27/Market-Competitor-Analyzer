@@ -19,7 +19,7 @@ COURSES = [
     "/courses/lifetime-free-at-999-"
 ]
 
-async def scrape_courses():
+async def extract_digital_pathsala():
     data = []
 
     async with AsyncWebCrawler() as crawler:
@@ -66,12 +66,12 @@ async def scrape_courses():
     return data
 
 async def main():
-    courses = await scrape_courses()
+    courses = await extract_digital_pathsala()
 
     with open("digitalpathshala_all_courses.json", "w", encoding="utf-8") as f:
         json.dump(courses, f, indent=4, ensure_ascii=False)
 
-    print("✔ Saved digitalpathshala_all_courses.json")
+    print("digital_pathsala.json")
 
 if __name__ == "__main__":
     asyncio.run(main())

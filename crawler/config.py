@@ -25,3 +25,13 @@ COMPETITORS = {
         "raw_file": "data/raw/nepal_training.json"
     },
 }
+
+STANDARD_FIELDS = {
+    "course_name": ["title", "name", "course_title"],
+    "price": ["price", "cost", "fee"],
+    "currency": ["currency", "symbol"], 
+    "duration": ["duration", "length", "weeks"],
+    "level": ["level", "difficulty"], 
+    "skills": ["skills", "topic", "tags"],
+    "url": ["url", "link"]              
+}

@@ -7,7 +7,7 @@ URL = "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-an
 OUTPUT_FILE = "nepal_trainingcentre_courses.json"
 
 
-def parse_course_table(soup):
+def extract_nepal_training(soup):
     courses = []
     table = soup.find("table")
 
@@ -56,12 +56,12 @@ def parse_discount_table(soup):
 
 async def main():
     async with AsyncWebCrawler() as crawler:
-        print(f"🔍 Crawling → {URL}")
+        print(f" Crawling {URL}")
         result = await crawler.arun(url=URL)
 
         soup = BeautifulSoup(result.html, "lxml")
 
-        courses = parse_course_table(soup)
+        courses = extract_nepal_training(soup)
         discounts = parse_discount_table(soup)
 
         data = {
@@ -73,7 +73,7 @@ async def main():
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
-        print(f"✅ Saved {len(courses)} courses and {len(discounts)} discounts to {OUTPUT_FILE}")
+        print(f" Saved {len(courses)} courses and {len(discounts)} discounts to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
