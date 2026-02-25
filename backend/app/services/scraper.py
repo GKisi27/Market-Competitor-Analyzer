@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.models.competitor import Competitor
+from app.models.competitors import Competitor
 from app.models.curriculum_data import CurriculumData
 from app.models.price_data import PriceData
 from crawler.parsers.normalize import normalize_all  # Import from crawler

@@ -1,44 +1,14 @@
-[
-  {
-    "course_name": "Web Development",
-    "duration": "2.5 months",
-    "price_npr": 15000,
-    "description": "Web development course with practical projects and real-world applications.",
-    "enroll_url": "https://letslearn.asia/course/web-development/" 
-  },
-  {
-    "course_name": "Mobile Application Development",
-    "duration": "2.5 months",
-    "price_npr": 18000,
-    "description": "Build and launch mobile apps for iOS and Android from scratch.",
-    "enroll_url": "https://letslearn.asia/course/mobile-application-development/" 
-  },
-  {
-    "course_name": "Software Development",
-    "duration": "2.5 months",
-    "price_npr": 18000,
-    "description": "Full-stack software development covering Python, Java, C++, .NET",
-    "enroll_url": "https://letslearn.asia/course/software-development-course/"
-  },
-  {
-    "course_name": "Digital Marketing",
-    "duration": "2.5 months",
-    "price_npr": 12000,
-    "description": "Digital marketing including SEO, social media, email marketing, analytics.",
-    "enroll_url": "https://letslearn.asia/course/digital-marketing/"
-  },
-  {
-    "course_name": "Artificial Intelligence",
-    "duration": "2.5 months",
-    "price_npr": 15000,
-    "description": "AI course covering machine learning, neural networks, data analysis.",
-    "enroll_url": "https://letslearn.asia/course/artificial-intelligence-course/"
-  },
-  {
-    "course_name": "Graphic Design & UI/UX",
-    "duration": "2.5 months",
-    "price_npr": 15000,
-    "description": "Graphic design and UI/UX with tools like Figma and Canva.",
-    "enroll_url": "https://letslearn.asia/course/graphic-design-ui-ux/"
-  }
-]
+{
+  "competitor": "lets_learn",
+  "source_url": "https://letslearn.asia/courses",
+  "courses": [
+    {"course_name": "Web Development", "duration": "2.5 months", "price": 15000.0, "currency": "NPR", "url": "https://letslearn.asia/course/web-development-course-in-nepal/", "level": "Basic - Advance", "discount": null},
+    {"course_name": "Mobile Application Development", "duration": "2.5 months", "price": 18000.0, "currency": "NPR", "url": "https://letslearn.asia/course/mobile-application-development-course/", "level": "Basic - Advance", "discount": null},
+    {"course_name": "Software Development", "duration": "2.5 months", "price": 18000.0, "currency": "NPR", "url": "https://letslearn.asia/course/software-development-course/", "level": "Basic - Advance", "discount": null},
+    {"course_name": "Digital Marketing", "duration": "2.5 months", "price": 12000.0, "currency": "NPR", "url": "https://letslearn.asia/course/digital-marketing-course-in-nepal/", "level": "Basic - Advance", "discount": null},
+    {"course_name": "Artificial Intelligence", "duration": "2.5 months", "price": 15000.0, "currency": "NPR", "url": "https://letslearn.asia/course/artificial-intelligence-course/", "level": "Basic - Advance", "discount": null},
+    {"course_name": "Graphic Design and UI/UX", "duration": "2.5 months", "price": 15000.0, "currency": "NPR", "url": "https://letslearn.asia/course/graphics-design-courses-ui-ux-courses/", "level": "Basic - Advance", "discount": null},
+    {"course_name": "MERN Stack Development", "duration": "2.5 months", "price": 15000.0, "currency": "NPR", "url": "https://letslearn.asia/course/mern-stack-development-training-in-nepal/", "level": "Intermediate", "discount": null},
+    {"course_name": "Microsoft Office Package", "duration": "2.5 months", "price": 15000.0, "currency": "NPR", "url": "https://letslearn.asia/course/microsoft-office-package-course-in-nepal/", "level": "Basic", "discount": null}
+  ]
+}

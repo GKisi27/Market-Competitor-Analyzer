@@ -1,62 +1,139 @@
+# crawler/extractors/lets_learn.py
+"""
+Extractor for: LetsLearn Nepal
+URL  : https://letslearn.asia/courses
+Page : WordPress site — course listing with cards.
+       Each card has: title, duration, price (NRP format), enroll URL.
+
+Strategy:
+  - Scrape the /courses listing page.
+  - Parse course cards: title, duration badge, price (discounted), URL.
+  - Currency = NPR ("NRP." prefix used on site, normalised to NPR).
+  - Level extracted from course detail page "Level" badge where available.
+  - Prices appear as: "NRP. 25,000" (original) and "NRP. 15,000 /-" (discounted).
+    We capture the LOWER (discounted) price.
+"""
+
+from __future__ import annotations
+import re
 import asyncio
-import json
-from crawl4ai import AsyncWebCrawler
 from bs4 import BeautifulSoup
+from crawl4ai import AsyncWebCrawler, CrawlerRunConfig, BrowserConfig
 
-COURSE_URLS = [
-    "https://letslearn.asia/course/web-development/",
-    "https://letslearn.asia/course/digital-marketing/",
-    "https://letslearn.asia/course/mobile-application-development/",
-    "https://letslearn.asia/course/software-development-course/",
-    "https://letslearn.asia/course/artificial-intelligence-course/",
-    "https://letslearn.asia/course/graphic-design-ui-ux/"
-]
+BASE_URL    = "https://letslearn.asia"
+COURSES_URL = f"{BASE_URL}/courses"
+CURRENCY    = "NPR"
 
-OUTPUT_FILE = "letslearn_courses.json"
+_PRICE_RE    = re.compile(r'(?:NRP?\.?\s*)([\d,]+)', re.IGNORECASE)
+_DURATION_RE = re.compile(r'(\d+[\d.]*\s*(?:months?|weeks?|days?|hours?))', re.IGNORECASE)
+_LEVEL_RE    = re.compile(r'(beginner|intermediate|advanced|basic\s*[–-]\s*advance)', re.IGNORECASE)
 
 
-def clean_text(text):
-    return " ".join(text.split()) if text else None
+def _parse_price(raw: str) -> float | None:
+    """'NRP. 15,000 /-' or 'NRP. 25,000' → 15000.0"""
+    m = _PRICE_RE.search(raw)
+    if m:
+        try:
+            return float(m.group(1).replace(",", ""))
+        except ValueError:
+            pass
+    # fallback: strip all non-numeric except dot
+    cleaned = re.sub(r'[^\d.]', '', raw)
+    try:
+        return float(cleaned) if cleaned else None
+    except ValueError:
+        return None
 
 
-async def extract_letslearn(crawler, url):
-    result = await crawler.arun(url=url)
-    soup = BeautifulSoup(result.html, "lxml")
-
-    # Course Name
-    title = soup.select_one("h1")
-
-    # Description (main content area)
-    description = soup.select_one(".tutor-course-content, .course-content, .entry-content")
-
-    # Price & Duration (text-based search – robust)
-    price = soup.find(string=lambda t: t and ("Rs" in t or "NPR" or "/-" in t))
-    duration = soup.find(string=lambda t: t and ("Month" in t or "Months" in t))
-
-    return {
-        "course_name": clean_text(title.get_text()) if title else "Not available",
-        "price": clean_text(price) if price else "Not listed",
-        "duration": clean_text(duration) if duration else "Not listed",
-        "description": clean_text(description.get_text()) if description else "Not available",
-        "course_url": url
-    }
+def _lowest_price(prices: list[float]) -> float | None:
+    valid = [p for p in prices if p and p > 0]
+    return min(valid) if valid else None
 
 
-async def main():
+async def fetch() -> list[dict]:
+    """Returns a list of canonical course dicts."""
+    browser_cfg = BrowserConfig(headless=True, verbose=False)
+    run_cfg = CrawlerRunConfig(
+        wait_for="css:.course, css:article, css:.card, css:.elementor-post",
+        js_code="window.scrollTo(0, document.body.scrollHeight);",
+        delay_before_return_html=2.5,
+        word_count_threshold=0,
+        verbose=False,
+    )
+
+    async with AsyncWebCrawler(config=browser_cfg) as crawler:
+        result = await crawler.arun(url=COURSES_URL, config=run_cfg)
+
+    if not result.success:
+        print(f"[lets_learn] Crawl failed: {result.error_message}")
+        return []
+
+    soup = BeautifulSoup(result.html, "html.parser")
     courses = []
+    seen_urls = set()
 
-    async with AsyncWebCrawler() as crawler:
-        for url in COURSE_URLS:
-            print(f"Scraping: {url}")
-            course_data = await extract_letslearn(crawler, url)
-            courses.append(course_data)
+    # Course cards link to /course/<slug>
+    course_links = soup.find_all("a", href=re.compile(r'/course/[^"\']+'))
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(courses, f, indent=4, ensure_ascii=False)
+    for link in course_links:
+        href = link.get("href", "")
+        full_url = href if href.startswith("http") else BASE_URL + href
 
-    print(f"\n Scraped {len(courses)} courses")
-    print(f"Saved to {OUTPUT_FILE}")
+        if full_url in seen_urls:
+            continue
+        seen_urls.add(full_url)
+
+        card = link.find_parent(["div", "article", "li", "section"]) or link
+
+        # ── Title ──────────────────────────────────────────────────────────────
+        title_el = card.find(["h2", "h3", "h4"])
+        title = title_el.get_text(strip=True) if title_el else link.get_text(strip=True)
+        if not title:
+            continue
+
+        # ── Duration ───────────────────────────────────────────────────────────
+        duration = None
+        for text in card.stripped_strings:
+            m = _DURATION_RE.search(text)
+            if m:
+                duration = m.group(1).strip()
+                break
+
+        # ── Prices — collect all, take the lowest ─────────────────────────────
+        raw_prices = []
+        for text in card.stripped_strings:
+            if re.search(r'NRP?', text, re.I) or re.search(r'\d{4,}', text):
+                p = _parse_price(text)
+                if p:
+                    raw_prices.append(p)
+        price = _lowest_price(raw_prices)
+
+        # ── Level ──────────────────────────────────────────────────────────────
+        level = None
+        for text in card.stripped_strings:
+            m = _LEVEL_RE.search(text)
+            if m:
+                level = m.group(1).strip()
+                break
+
+        if not title or price is None or duration is None:
+            continue
+
+        courses.append({
+            "course_name": title,
+            "duration":    duration,
+            "price":       price,
+            "currency":    CURRENCY,
+            "url":         full_url,
+            "level":       level,
+            "discount":    None,
+        })
+
+    print(f"[lets_learn] Extracted {len(courses)} courses.")
+    return courses
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    results = asyncio.run(fetch())
+    for r in results:
+        print(r)
