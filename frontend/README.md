@@ -1,54 +1,97 @@
-# Frontend (Next.js/React)
+# Market Competitor Analyzer — Frontend
 
-This directory contains the Next.js/React frontend application.
+React web application for the **Market Competitor Analyzer** project. It provides dashboards, competitor insights, price index, gap analysis, and user authentication.
 
-## 📁 Structure
+## Tech Stack
+
+- **React 19** — UI library
+- **Vite 7** — build tool and dev server
+- **React Router DOM 7** — client-side routing
+- **Tailwind CSS 4** — styling
+- **Chart.js** & **react-chartjs-2** — charts and visualizations
+- **Font Awesome** — icons
+
+## Prerequisites
+
+- **Node.js** (v18+ recommended)
+- **npm** (or yarn/pnpm)
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173` (or the port Vite prints in the terminal).
+
+### Build for production
+
+```bash
+npm run build
+```
+
+Output is written to the `dist/` folder.
+
+### Preview production build locally
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project Structure
 
 ```
 frontend/
+├── public/              # Static assets
 ├── src/
-│   ├── components/    # Reusable UI components
-│   ├── pages/         # Next.js pages (routes)
-│   ├── hooks/         # Custom React hooks
-│   ├── services/      # API service calls
-│   ├── utils/         # Utility functions
-│   ├── styles/        # Global styles and CSS modules
-│   ├── context/       # React context providers
-│   ├── types/         # TypeScript type definitions
-│   └── lib/           # Third-party library configs
-├── public/
-│   ├── images/        # Static images
-│   └── icons/         # Icon assets
-└── tests/
-    ├── unit/          # Unit tests (Jest)
-    ├── integration/   # Integration tests
-    └── e2e/           # End-to-end tests (Playwright/Cypress)
+│   ├── assets/          # Images, SVGs
+│   ├── components/      # Reusable UI components
+│   │   ├── competitors/       # Competitor list & report
+│   │   ├── competitorsDetails/
+│   │   ├── dashboard/        # Charts, reports, welcome, word cloud
+│   │   ├── gapAnalysis/
+│   │   ├── homepage/        # Hero, nav, footer
+│   │   ├── priceIndex/
+│   │   └── Profile/
+│   ├── pages/           # Route-level pages
+│   ├── App.jsx          # Root component & routes
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles
+├── index.html
+├── vite.config.js
+└── package.json
 ```
 
-## 🎯 Key Responsibilities
+## Routes
 
-- User interface for competitor analysis dashboard
-- Authentication and user management UI
-- Data visualization components
-- Real-time job status monitoring
+| Path                | Page             | Description                    |
+|---------------------|------------------|--------------------------------|
+| `/`                 | Homepage         | Landing page                   |
+| `/login`            | Login            | User login                     |
+| `/signup`           | Sign Up          | User registration              |
+| `/dashboard`        | Dashboard        | Overview and charts            |
+| `/price-index`      | Price Index      | Price index views              |
+| `/gap-analysis`     | Gap Analysis     | Gap analysis charts            |
+| `/competitors`      | Competitors      | Competitor list                |
+| `/competitors-details` | Competitors Details | Competitor detail view   |
+| `/Profile`          | Profile          | User profile and settings      |
 
-## 📦 Key Dependencies (To Be Added)
+## Integration
 
-- Next.js
-- React
-- TypeScript
-- Axios (API calls)
-- Chart.js or Recharts (data visualization)
-- TailwindCSS or styled-components
+This frontend is intended to work with the **Market Competitor Analyzer** backend API. Configure the API base URL in your environment or in the app’s API client as needed.
 
-## 🧪 Testing
-
-- **Unit Tests**: Jest + React Testing Library
-- **E2E Tests**: Playwright or Cypress
-
-## 📝 For Interns
-
-Start with:
-1. Understanding the component structure in `src/components/`
-2. Learning how pages work in `src/pages/`
-3. Review API service patterns in `src/services/`
+For Docker-based deployment, see the root `docker/` and `docker-compose.yml` in the project root.
