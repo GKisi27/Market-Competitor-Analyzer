@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // 1. Added Link to imports
 
 const Login = () => {
   const [userEmail, setUserEmail] = useState('');
@@ -51,7 +51,11 @@ const Login = () => {
 
         <div className="mt-6 text-center text-sm">
           <p className="text-slate-500">
-            New here? <span className="text-sky-400 cursor-pointer hover:underline">Create account</span>
+            {/* 2. Replaced <span> with <Link> below */}
+            Doesn't have an account?{' '}
+            <Link to="/signup" className="text-sky-400 hover:underline">
+              Sign Up
+            </Link>
           </p>
         </div>
       </div>
