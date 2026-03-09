@@ -15,7 +15,7 @@ class User(Base):
     #Relationships 
 
     user_roles = relationship("UserRole", back_populates = "user", cascade = "all, delete-orphan")
-    dashboards = relationship("Dashboard", back_populates = "creator", cascade = "all delete-orphan")
+    dashboards = relationship("Dashboard", back_populates = "creator", cascade = "all, delete-orphan")
     reports = relationship("Report", back_populates = "generator", cascade = "all, delete-orphan")
     crawler_jobs = relationship("CrawlerJob", back_populates = "triggered_by_user", cascade = "all, delete-orphan")
 

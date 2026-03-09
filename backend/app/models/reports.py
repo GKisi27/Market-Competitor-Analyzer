@@ -16,3 +16,4 @@ class Report(Base):
    
     # Relationships
     dashboard = relationship("Dashboard", back_populates="reports")
+    generator = relationship("User", back_populates="reports")

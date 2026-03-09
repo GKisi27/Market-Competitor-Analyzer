@@ -1,16 +1,18 @@
 from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://postgres:0490036@localhost:5432/Market_competitor_Analyzer")
+    DATABASE_URL: str
     PROJECT_NAME: str = "Market Competitor Analyzer"
     API_V1_STR: str = "/api/v1"
+    SECRET_KEY: str
+    APP_ENV: str = "development"
 
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+        extra = "ignore"
 
 settings = Settings()
