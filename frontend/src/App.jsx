@@ -10,7 +10,10 @@ import Homepage from './pages/Homepage'
 import Login from './components/Login'
 import SignUp from './components/SignUp' 
 
+
 const App = () => {
+  
+  
   return (
     <Routes>
       <Route path='/' element={<Homepage />} />
