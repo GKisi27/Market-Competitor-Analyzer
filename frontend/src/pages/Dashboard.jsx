@@ -8,14 +8,14 @@ import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
 
-  const user= false
-  if(!user){
-   return <Navigate to='/login'/>
-  }
+  // const user= false
+  // if(!user){
+  //  return <Navigate to='/login'/>
+  // }
 
 
   return (
-    <div className="bg-[#141A28]  w-full">
+    <div className="page">
       <Navbar />
       <Welcome />
       <Reports />

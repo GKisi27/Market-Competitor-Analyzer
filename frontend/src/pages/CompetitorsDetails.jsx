@@ -5,7 +5,7 @@ import TopCourses from "../components/competitorsDetails/TopCourses";
 
 const CompetitorsDetails = () => {
   return (
-    <div className="bg-[#141A28] w-full">
+    <div className="page">
       <Navbar />
       <CompetitorDetail />
       <TopCourses/>

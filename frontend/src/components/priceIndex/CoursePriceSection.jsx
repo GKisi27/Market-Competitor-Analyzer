@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const CoursePriceSection = () => {
   return (
-    <div className="flex justify-between items-center gap-10 text-white px-15">
-      <div className="w-1/2  bg-[#1B2537] rounded-lg p-5">
+    <div className="flex justify-between items-center gap-10 px-15">
+      <div className="w-1/2 card p-5">
         <h2 className="text-2xl font-bold mb-4">Course Price comparison</h2>
         <table className="w-full">
          <thead>
@@ -27,12 +27,12 @@ const CoursePriceSection = () => {
         </table>
       </div>
 
-      <div className="w-1/2 bg-[#1B2537] rounded-lg p-5">
+      <div className="w-1/2 card p-5">
 
         <h2 className="text-2xl font-bold mb-4" >course pricing overview</h2>
         <table className="w-full">
           <thead>
-            <tr className="border-b">
+            <tr className="border-b border-[var(--border)]">
             <th className="text-left">Competitor</th>
             <th className="text-left">Avg Price</th>
             <th className="text-left">Courses</th>

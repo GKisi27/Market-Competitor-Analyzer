@@ -1,33 +1,53 @@
-import React from 'react'
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import api from "../../services/api";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock as Clock } from '@fortawesome/free-regular-svg-icons'
 
-const courses = [
-  { id: 1, name: 'Data Science with Python', price: 'Rs. 25,000', duration: '4 Months' },
-  { id: 2, name: 'React', price: 'Rs. 15,000', duration: '2 Months' },
-  { id: 3, name: 'Mern Fullstack', price: 'Rs. 40,000', duration: '5 Months' },
-  { id: 4, name: 'Artificial Intelligence', price: 'Rs. 20,000', duration: '3 Months' },
-]
-
 const TopCourses = () => {
+  const { id } = useParams();
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await api.get(`/competitors/${id}`);
+        setCourses(response.data.courses || []);
+      } catch (err) {
+        console.error('Error fetching courses:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) fetchCourses();
+  }, [id]);
+
+  if (loading) return null;
   return (
-    <div className="bg-[#1B2537] rounded-lg p-6 text-white mt-10 mx-15">
+    <div className="card p-6 mt-10 mx-15">
       <h2 className="text-xl font-semibold mb-6">Top Courses :</h2>
       <div className="space-y-4">
-        {courses.map((course) => (
-          <div className="bg-[#16202b] rounded-lg p-4 flex justify-between items-center">
+        {courses.map((course, index) => (
+          <div key={index} className="bg-[var(--bg-input)] rounded-lg p-4 flex justify-between items-center border border-[var(--border)]">
             <div>
-              <p className="text-sm font-medium">{course.name}</p>
+              <p className="text-sm font-medium">{course.course_name}</p>
             </div>
             <div className="flex items-center gap-6">
-              <span className="text-sm font-semibold">{course.price}</span>
+              <span className="text-sm font-semibold">
+                {course.price ? `Rs. ${course.price.toLocaleString()}` : 'N/A'}
+              </span>
               <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={Clock} className="w-4 h-4" />
-                <span className="text-sm">{course.duration}</span>
+                <FontAwesomeIcon icon={Clock} className="w-4 h-4 text-gray-400" />
+                <span className="text-sm text-gray-300">{course.duration || 'N/A'}</span>
               </div>
             </div>
           </div>
         ))}
+        {courses.length === 0 && (
+          <p className="text-center text-gray-500 py-4">No courses track for this competitor.</p>
+        )}
       </div>
     </div>
   )

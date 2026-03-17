@@ -53,15 +53,15 @@ def seed_roles(db) -> list[Role]:
 
 
 def seed_users(db) -> list[User]:
-    from hashlib import sha256
-    def h(pw): return sha256(pw.encode()).hexdigest()
+    from app.core.security import get_password_hash
     rows = [
-        User(full_name = "Gopal Kisi",      email="info@nextstepinfotech.com",       password_hash=h("gopal123"),    status=True),
-        User(full_name="Prasiddha Karki",   email="prashidkarki321@gmail.com",  password_hash=h("prasiddha123"),   status=True), 
-        User(full_name="Sumit Ghimire",     email="sumitghimire77@gmail.com",    password_hash=h("sumit123"),   status=True),
-        User(full_name ="Anish Shrestha", email="cresthanis@gmail.com",        password_hash=h("anish123"),   status=True),
-        User(full_name="Kashmir Lama" ,    email="kashmirlama@gmail.com",      password_hash=h("kashmir123"), status=True),
-        User(full_name="Rabin Gapi",        email="rabing624@gmail.com",       password_hash=h("rabin123"),   status=True),
+        User(full_name="Gopal Kisi",      email="info@nextstepinfotech.com",   password_hash=get_password_hash("gopal123"),    status=True),
+        User(full_name="Prasiddha Karki", email="prashidkarki321@gmail.com",   password_hash=get_password_hash("prasiddha123"),status=True), 
+
+        User(full_name="Sumit Ghimire",   email="sumitghimire77@gmail.com",    password_hash=get_password_hash("sumit123"),   status=True),
+        User(full_name="Anish Shrestha",  email="cresthanis@gmail.com",        password_hash=get_password_hash("anish123"),   status=True),
+        User(full_name="Kashmir Lama",    email="kashmirlama@gmail.com",       password_hash=get_password_hash("kashmir123"), status=True),
+        User(full_name="Rabin Gapi",      email="rabing624@gmail.com",         password_hash=get_password_hash("rabin123"),   status=True),
     ]
     db.add_all(rows); db.flush()
     print(f"  users              : {len(rows)}")
@@ -181,11 +181,11 @@ def seed_raw_and_processed(db, jobs, configs) -> tuple:
 
 def seed_price_and_curriculum(db, competitors, jobs) -> tuple:
     comp_map = {
-        "code_it":          competitors[0],
+        "code_it":          competitors[4],
         "digital_pathsala": competitors[1],
         "evolve":           competitors[2],
         "lets_learn":       competitors[3],
-        "nepal_training":   competitors[4],
+        "nepal_training":   competitors[0],
     }
     
     now  = datetime.now(timezone.utc)
@@ -295,7 +295,7 @@ def seed_curriculum_skills(db, curriculum_list, skills) -> list[CurriculumSkill]
             seen.add(key)
             rows.append(CurriculumSkill(curriculum_id=curr.curriculum_id, skill_id=skill.skill_id))
     db.add_all(rows); db.flush()
-    print(f"  ✓ curriculum_skills  : {len(rows)}")
+    print(f"  curriculum_skills  : {len(rows)}")
     return rows
 
 
@@ -336,20 +336,20 @@ def seed_competitor_metrics(db, competitors, metrics) -> list[CompetitorMetric]:
 
 
 def create_tables():
-    print("\n── Creating tables ────────────────────────────────────")
+    print("\n-- Creating tables ------------------------------------")
     Base.metadata.create_all(bind=engine)
     from sqlalchemy import inspect
     tables = inspect(engine).get_table_names()
     print(f"{len(tables)} tables ready: {', '.join(sorted(tables))}\n")
 
 def drop_tables():
-    print("\n── Dropping all tables ────────────────────────────────")
+    print("\n-- Dropping all tables --------------------------------")
     Base.metadata.drop_all(bind=engine)
     print("  All tables dropped.\n")
 
 
 def run_seed():
-    print("── Seeding all 17 tables ──────────────────────────────")
+    print("-- Seeding all 17 tables ------------------------------")
     db = SessionLocal()
     try:
         roles       = seed_roles(db)

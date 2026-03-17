@@ -5,7 +5,7 @@ import CompetitorList from '../components/competitors/CompetitorList'
 
 const Competitors = () => {
   return (
-    <div className='bg-[#141A28] w-full min-h-screen'>
+    <div className='page'>
       <Navbar/>
       <CompetitorReport/>
       <CompetitorList/>

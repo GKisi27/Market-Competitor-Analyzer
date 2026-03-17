@@ -7,7 +7,7 @@ import Footer from '../components/homepage/Footer'
 
 const Homepage = () => {
   return (
-    <div className='bg-[#141A28] w-full min-h-screen text-white'>
+    <div className='page'>
       <HomeNav/>
       <HeroSection/>
       <Facilities/>
