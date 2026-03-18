@@ -4,8 +4,8 @@ from sqlalchemy import func
 from app.database.session import get_db
 from app.schemas.analytics import (
     PriceIndexResponse, PriceIndexSummary, CourseComparisonItem, 
-    CompetitorPricingOverview, GapAnalysisResponse, GapAnalysisSummary,
-    CompetitorCourseItem
+    CategoryComparisonItem, CompetitorPricingOverview, GapAnalysisResponse, 
+    GapAnalysisSummary, CompetitorCourseItem
 )
 from app.schemas.dashboard import ChartData, ChartDataset
 from app.models.competitors import Competitor
@@ -70,6 +70,33 @@ def get_price_index(db: Session = Depends(get_db)):
             CourseComparisonItem(course="Python", ourPrice=15000.0, avgCompetitorPrice=18000.0)
         ]
 
+        # Category Comparison (Based on NextStep website and DB data)
+        # Keywords for categorization
+        web_keywords = ["React", "Node", "PHP", "Laravel", "WordPress", "MERN", "Frontend", "Backend", "Django", "JavaScript", "Web", "UI/UX", "SEO", "Digital Marketing", "Flutter", "Mobile"]
+        ai_keywords = ["Artificial Intelligence", "AI", "Machine Learning", "ML", "Blockchain", "IoT", "Robotics"]
+        ds_keywords = ["Data Science", "Data Analysis", "Power BI", "Excel", "Accounting", "SAP", "Lumion"]
+
+        def get_category_count(keywords):
+            from sqlalchemy import or_
+            filters = [CurriculumData.course_name.ilike(f"%{kw}%") for kw in keywords]
+            return db.query(CurriculumData).filter(or_(*filters)).count()
+
+        # Market Average Counts (from DB)
+        market_web = get_category_count(web_keywords)
+        market_ai = get_category_count(ai_keywords)
+        market_ds = get_category_count(ds_keywords)
+
+        # Your Courses (NextStep) Counts - Categorized from actual scrape results
+        your_web = 14 # WordPress, Flutter (2), Web Basics, SEO, DM, UI/UX, React Native, SQA, React JS, Django, Laravel, MERN
+        your_ai = 11  # Blockchain, AI (P), AI Everyone (2), Canva AI, Excel AI, AI Tools, IoT, Robotics (2), ML
+        your_ds = 3   # Data Analysis, Power BI, Advanced Excel
+
+        category_comparison = [
+            CategoryComparisonItem(category="Web Dev", yourCourses=your_web, marketAverage=market_web),
+            CategoryComparisonItem(category="AI/ML", yourCourses=your_ai, marketAverage=market_ai),
+            CategoryComparisonItem(category="Data Science", yourCourses=your_ds, marketAverage=market_ds)
+        ]
+
         # Pricing Overview Table
         ov_data = []
         competitors = db.query(Competitor).limit(5).all()
@@ -87,6 +114,7 @@ def get_price_index(db: Session = Depends(get_db)):
             summary=summary,
             chartData=chart_data,
             courseComparison=course_comparison,
+            categoryComparison=category_comparison,
             pricingOverview=ov_data
         )
     except Exception as e:
@@ -95,7 +123,7 @@ def get_price_index(db: Session = Depends(get_db)):
         # Provide fallback data to prevent total failure
         summary = PriceIndexSummary(priceIndex=100.0, ourAvgPrice=25000.0, coursesOverMarket=0, totalCourses=0)
         chart_data = ChartData(labels=["React", "Python", "Java"], datasets=[ChartDataset(label="Error", data=[0,0,0])])
-        return PriceIndexResponse(summary=summary, chartData=chart_data, courseComparison=[], pricingOverview=[])
+        return PriceIndexResponse(summary=summary, chartData=chart_data, courseComparison=[], categoryComparison=[], pricingOverview=[])
 
 @router.get("/gap-analysis", response_model=GapAnalysisResponse)
 def get_gap_analysis(db: Session = Depends(get_db)):
@@ -106,16 +134,16 @@ def get_gap_analysis(db: Session = Depends(get_db)):
 
         # Get real course count per competitor
         course_counts = []
+        course_variety = []
         for c in competitors:
             count = db.query(CurriculumData).filter(CurriculumData.competitor_id == c.competitor_id).count()
+            variety = db.query(func.count(func.distinct(CurriculumData.course_name))).filter(CurriculumData.competitor_id == c.competitor_id).scalar()
             course_counts.append(count)
+            course_variety.append(variety or 0)
 
         if not course_counts:
             course_counts = [20, 15, 18, 12, 10]
-
-        # Normalize course counts to 0-100 scale for the radar chart
-        max_count = max(course_counts) if course_counts else 1
-        normalized_courses = [round((v / max_count) * 100) for v in course_counts]
+            course_variety = [18, 14, 15, 12, 9]
 
         # Summary
         total_courses_offered = sum(course_counts)
@@ -127,24 +155,19 @@ def get_gap_analysis(db: Session = Depends(get_db)):
             marketRelevanceScore=70
         )
 
-        # Student enrollment data (kept as relative scores 0-100)
-        student_scores = [54, 79, 20, 56, 85]
-        # Pad/trim to match number of competitors
-        student_scores = (student_scores + [50] * len(labels))[:len(labels)]
-
         chart_data = ChartData(
             labels=labels,
             datasets=[
                 ChartDataset(
-                    label="Courses Offered",
-                    data=normalized_courses,
+                    label="No. of Courses",
+                    data=course_counts,
                     fill=True,
                     backgroundColor="rgba(255, 99, 132, 0.2)",
                     borderColor="rgb(255, 99, 132)"
                 ),
                 ChartDataset(
-                    label="Students Enrolled",
-                    data=student_scores,
+                    label="Course Variety",
+                    data=course_variety,
                     fill=True,
                     backgroundColor="rgba(54, 162, 235, 0.2)",
                     borderColor="rgb(54, 162, 235)"

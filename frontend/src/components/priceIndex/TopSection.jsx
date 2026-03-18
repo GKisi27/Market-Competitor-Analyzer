@@ -11,7 +11,7 @@ const TopSection = () => {
           <h2 className="text-3xl font-bold mb-2">
             Course Coverage Analysis
           </h2>
-          <p className="text-normal font-semibold leading-5 text-gray-400">
+          <p className="text-normal font-semibold leading-5 text-[var(--text-muted)]">
             Coverage comparison of your courses against competitors across key categories
           </p>
         </div>
@@ -28,7 +28,7 @@ const TopSection = () => {
               </div>
             </div>
             <h2 className="text-4xl font-bold">68%</h2>
-            <p className="text-sm text-gray-400">Across market</p>
+            <p className="text-sm text-[var(--text-muted)]">Across market</p>
           </div>
 
           {/* Your Courses */}
@@ -40,7 +40,7 @@ const TopSection = () => {
               </div>
             </div>
             <h2 className="text-4xl font-bold">48</h2>
-            <p className="text-sm text-gray-400">Available</p>
+            <p className="text-sm text-[var(--text-muted)]">Available</p>
           </div>
 
           {/* Missing Courses */}
@@ -52,7 +52,7 @@ const TopSection = () => {
               </div>
             </div>
             <h2 className="text-4xl font-bold">12</h2>
-            <p className="text-sm text-gray-400">vs competitors</p>
+            <p className="text-sm text-[var(--text-muted)]">vs competitors</p>
           </div>
 
           {/* Categories Covered */}
@@ -64,7 +64,7 @@ const TopSection = () => {
               </div>
             </div>
             <h2 className="text-4xl font-bold">6 / 10</h2>
-            <p className="text-sm text-gray-400">Market coverage</p>
+            <p className="text-sm text-[var(--text-muted)]">Market coverage</p>
           </div>
 
         </div>

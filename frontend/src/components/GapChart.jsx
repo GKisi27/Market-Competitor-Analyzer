@@ -26,7 +26,7 @@ ChartJS.register(
 );
 
 
-const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
+const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true, visibleDatasets = null }) => {
   const { isDark } = useTheme();
   const [data, setData] = useState({
     labels: [],
@@ -107,7 +107,6 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
           backdropColor: 'transparent',
           color: tickColor,
           font: { size: 10 },
-          stepSize: 20,
         },
         grid: {
           color: gridColor,
@@ -128,9 +127,17 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
 
   return (
     <div className={`card ${height} w-full p-8 flex flex-col overflow-hidden shadow-sm`}>
-      <h3 className='text-center mb-6 font-bold text-lg border-b border-[var(--border)] pb-3'>Gap Analysis: Courses vs Enrollment</h3>
+      <h3 className='text-center mb-6 font-bold text-lg border-b border-[var(--border)] pb-3'>Gap Analysis: Courses & Variety</h3>
       <div className='flex-1 relative'>
-        <Radar data={data} options={options} />
+        <Radar 
+          data={{
+            labels: data.labels,
+            datasets: data.datasets.filter(ds => 
+              visibleDatasets === null || visibleDatasets[ds.label] !== false
+            )
+          }} 
+          options={options} 
+        />
       </div>
     </div>
   );

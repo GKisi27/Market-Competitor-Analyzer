@@ -27,24 +27,24 @@ const CoursePriceSection = () => {
 
     return (
         <div className="flex justify-between items-stretch gap-10 px-15 mt-10">
-            {/* Table 1: Our Price vs Avg Competitor */}
+            {/* Table 1: Your Courses vs Market Average */}
             <div className="w-1/2 card p-8 rounded-2xl shadow-sm border border-[var(--border)]">
-                <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Course Price Comparison</h2>
+                <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Course Category Comparison</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left">
                         <thead>
                             <tr className="border-b border-[var(--border)]">
-                                <th className="pb-4 font-semibold text-gray-400">Courses</th>
-                                <th className="pb-4 font-semibold text-gray-400">Our Price</th>
-                                <th className="pb-4 font-semibold text-gray-400">Avg. Competitor</th>
+                                <th className="pb-4 font-semibold text-[var(--text-muted)]">Category</th>
+                                <th className="pb-4 font-semibold text-[var(--text-muted)]">Your Courses</th>
+                                <th className="pb-4 font-semibold text-[var(--text-muted)]">Market Average</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-[var(--border)]">
-                            {data.courseComparison.map((item, idx) => (
+                            {data.categoryComparison?.map((item, idx) => (
                                 <tr key={idx} className="hover:bg-[var(--bg-input)] transition-colors">
-                                    <td className="py-4 font-medium">{item.course}</td>
-                                    <td className="py-4 font-bold text-blue-500">Rs. {item.ourPrice.toLocaleString()}</td>
-                                    <td className="py-4 font-semibold text-amber-500">Rs. {item.avgCompetitorPrice.toLocaleString()}</td>
+                                    <td className="py-4 font-medium">{item.category}</td>
+                                    <td className="py-4 font-bold text-blue-500">{item.yourCourses}</td>
+                                    <td className="py-4 font-semibold text-amber-500">{item.marketAverage}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -59,9 +59,9 @@ const CoursePriceSection = () => {
                     <table className="w-full text-left">
                         <thead>
                             <tr className="border-b border-[var(--border)]">
-                                <th className="pb-4 font-semibold text-gray-400">Competitor</th>
-                                <th className="pb-4 font-semibold text-gray-400">Avg Price</th>
-                                <th className="pb-4 font-semibold text-gray-400">Courses</th>
+                                <th className="pb-4 font-semibold text-[var(--text-muted)]">Competitor</th>
+                                <th className="pb-4 font-semibold text-[var(--text-muted)]">Avg Price</th>
+                                <th className="pb-4 font-semibold text-[var(--text-muted)]">Courses</th>
                                 <th className="pb-4"></th>
                             </tr>
                         </thead>
@@ -70,7 +70,7 @@ const CoursePriceSection = () => {
                                 <tr key={idx} className="hover:bg-[var(--bg-input)] transition-colors">
                                     <td className="py-4 font-medium">{item.competitor}</td>
                                     <td className="py-4 font-semibold">Rs. {Math.round(item.avgPrice).toLocaleString()}</td>
-                                    <td className="py-4 text-gray-400">{item.courses} Courses</td>
+                                    <td className="py-4 text-[var(--text-muted)]">{item.courses} Courses</td>
                                     <td className="py-4 text-right">
                                         {item.url ? (
                                             <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">

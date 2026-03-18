@@ -13,6 +13,11 @@ class CourseComparisonItem(BaseModel):
     ourPrice: float
     avgCompetitorPrice: float
 
+class CategoryComparisonItem(BaseModel):
+    category: str
+    yourCourses: int
+    marketAverage: int
+
 class CompetitorPricingOverview(BaseModel):
     competitor: str
     avgPrice: float
@@ -23,6 +28,7 @@ class PriceIndexResponse(BaseModel):
     summary: PriceIndexSummary
     chartData: ChartData
     courseComparison: List[CourseComparisonItem]
+    categoryComparison: List[CategoryComparisonItem]
     pricingOverview: List[CompetitorPricingOverview]
 
 class GapAnalysisSummary(BaseModel):

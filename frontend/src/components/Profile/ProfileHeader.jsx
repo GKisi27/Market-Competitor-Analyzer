@@ -12,8 +12,8 @@ const ProfileHeader = ({ user, onEditToggle, editOpen }) => {
 
       <div className="flex-1 min-w-0 font-semibold">
         <h2 className="text-2xl font-bold truncate">{user?.full_name || '—'}</h2>
-        <p className="text-gray-400 text-sm mt-1 truncate">{user?.email || ''}</p>
-        <span className={`inline-block mt-2 text-xs font-semibold px-3 py-1 rounded-full ${user?.status ? 'bg-green-900 text-green-300' : 'bg-gray-700 text-gray-400'}`}>
+        <p className="text-[var(--text-muted)] text-sm mt-1 truncate">{user?.email || ''}</p>
+        <span className={`inline-block mt-2 text-xs font-semibold px-3 py-1 rounded-full ${user?.status ? 'bg-green-900 text-green-300' : 'bg-gray-700 text-[var(--text-muted)]'}`}>
           {user?.status ? 'Active' : 'Inactive'}
         </span>
       </div>

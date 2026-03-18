@@ -10,7 +10,7 @@ const AccountSettingsCard = ({ formData, handleChange, handleUpdate }) => {
       <form onSubmit={handleUpdate} className="flex flex-col gap-5 text-sm">
         {/* Full Name */}
         <div className="flex flex-col gap-1.5">
-          <label className="text-sm text-gray-400 font-medium">Full Name</label>
+          <label className="text-sm text-[var(--text-muted)] font-medium">Full Name</label>
           <input
             name="full_name"
             value={formData.full_name || ''}
@@ -22,7 +22,7 @@ const AccountSettingsCard = ({ formData, handleChange, handleUpdate }) => {
 
         {/* Email */}
         <div className="flex flex-col gap-1.5">
-          <label className="text-sm text-gray-400 font-medium">Email Address</label>
+          <label className="text-sm text-[var(--text-muted)] font-medium">Email Address</label>
           <input
             name="email"
             value={formData.email || ''}
@@ -39,7 +39,7 @@ const AccountSettingsCard = ({ formData, handleChange, handleUpdate }) => {
 
         {/* Current Password */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm text-gray-400 font-medium">Current Password</label>
+              <label className="text-sm text-[var(--text-muted)] font-medium">Current Password</label>
               <input
                 name="currentPassword"
                 value={formData.currentPassword || ''}
@@ -52,7 +52,7 @@ const AccountSettingsCard = ({ formData, handleChange, handleUpdate }) => {
 
         {/* New Password */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm text-gray-400 font-medium">New Password</label>
+              <label className="text-sm text-[var(--text-muted)] font-medium">New Password</label>
               <input
                 name="newPassword"
                 value={formData.newPassword || ''}
@@ -64,7 +64,7 @@ const AccountSettingsCard = ({ formData, handleChange, handleUpdate }) => {
 
         {/* Confirm Password */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm text-gray-400 font-medium">Confirm New Password</label>
+              <label className="text-sm text-[var(--text-muted)] font-medium">Confirm New Password</label>
               <input
                 name="confirmNewPassword"
                 value={formData.confirmNewPassword || ''}

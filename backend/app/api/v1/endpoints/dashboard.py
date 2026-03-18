@@ -45,16 +45,16 @@ def get_charts(db: Session = Depends(get_db)):
         labels=labels,
         datasets=[
             ChartDataset(
-                label="Courses Offered",
+                label="No. of Courses",
                 data=[14, 9, 10, 8, 7], # Mocking based on seeded UI data or DB
                 fill=True,
                 backgroundColor="rgba(255, 99, 132, 0.2)",
                 borderColor="rgb(255, 99, 132)"
             ),
             ChartDataset(
-                label="Students Enrolled (Est.)",
-                data=[54, 79, 20, 56, 85],
-                fill=False,
+                label="Course Variety",
+                data=[12, 8, 9, 6, 5],
+                fill=True,
                 backgroundColor="rgba(54, 162, 235, 0.2)",
                 borderColor="rgb(54, 162, 235)"
             )

@@ -51,7 +51,7 @@ const Navbar = () => {
       </div>
 
       {/* Search */}
-      <form
+      {/* <form
         onSubmit={searchHandler}
         className="bg-[var(--bg-input)] w-87.5 h-10 px-3 rounded-lg flex justify-between items-center"
       >
@@ -65,7 +65,7 @@ const Navbar = () => {
         <button type="submit">
           <FontAwesomeIcon className="text-lg text-gray-500 active:scale-110" icon={faMagnifyingGlass} />
         </button>
-      </form>
+      </form> */}
 
       {/* Icons */}
       <div className="flex items-center gap-3">
