@@ -1,6 +1,7 @@
 import React from "react";
 import {
   faDollarSign,
+  faBook,
   faChartLine,
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,13 +21,13 @@ const Reports = () => {
           className="card w-1/3 h-35 px-10 py-5 flex justify-between place-items-start"
         >
           <div className="flex flex-col w-full text-start">
-            <p className=" text-lg leading-8 text-left ">price index</p>
-            <h2 className="text-3xl font-bold">70.99</h2>
-            <p className="text-gray-500 ">According Market</p>
+            <p className=" text-lg leading-8 text-left ">Course Coverage</p>
+            <h2 className="text-3xl font-bold">68%</h2>
+            <p className="text-gray-500 ">Market Coverage</p>
           </div>
 
           <div className="bg-[#025E90] p-2 rounded">
-            <FontAwesomeIcon className="text-2xl" icon={faDollarSign} />
+            <FontAwesomeIcon className="text-2xl" icon={faBook} />
           </div>
         </Link>
 

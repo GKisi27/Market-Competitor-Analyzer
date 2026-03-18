@@ -32,8 +32,6 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
     labels: [],
     datasets: []
   });
-  const [competitorCourses, setCompetitorCourses] = useState([]);
-  const [showCourses, setShowCourses] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -42,7 +40,6 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
       try {
         const response = await api.get('/analytics/gap-analysis');
         setData(response.data.chartData);
-        setCompetitorCourses(response.data.competitorCourses || []);
         
         if (onDataLoaded && response.data.competitorCourses) {
           onDataLoaded(response.data.competitorCourses);
@@ -56,7 +53,7 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
     };
 
     fetchData();
-  }, []);
+  }, [onDataLoaded]);
 
   if (loading) {
     return (
@@ -87,6 +84,8 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
+        display: showLegend,
+        position: 'top',
         labels: {
           color: labelColor,
           font: { size: 12 },
@@ -119,7 +118,7 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
         pointLabels: {
           color: labelColor,
           font: {
-            size: 9,
+            size: 10,
             weight: 'bold',
           },
         },
@@ -128,64 +127,13 @@ const GapChart = ({ onDataLoaded, height = "h-96", showLegend = true }) => {
   };
 
   return (
-    <div className={`card ${height} w-full p-3 flex flex-col`}>
-      <h3 className='text-center mb-2 font-bold'>Gap Analysis: Courses vs Enrollment</h3>
-      <div className='flex flex-1 min-h-0 gap-3'>
-        {/* Chart Area */}
-        <div className='flex-1 relative'>
-          <Radar data={data} options={options} />
-        </div>
-
-        {/* Legend Area - Integrated directly to match user request */}
-        {showLegend && (
-          <div className="w-1/3 flex flex-col gap-2 justify-center bg-[var(--bg-input)] rounded-lg px-3 py-2 overflow-y-auto custom-scrollbar">
-            <h4 className="text-center font-bold text-xs mb-1">Legend</h4>
-
-            {/* Courses Offered */}
-            <div
-              className="cursor-pointer rounded-md p-2 border border-transparent hover:border-red-400 transition-all"
-              style={{ background: 'rgba(255,99,132,0.08)' }}
-              onClick={() => setShowCourses(prev => !prev)}
-              title="Click to toggle course breakdown"
-            >
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 bg-red-500 shrink-0 rounded-full" />
-                <span className="font-semibold text-[10px]">Courses Offered</span>
-                <span className="ml-auto text-[8px] opacity-60">{showCourses ? '▲' : '▼'}</span>
-              </div>
-
-              {showCourses && (
-                <div className="mt-1 flex flex-col gap-1 max-h-32 overflow-y-auto pr-1">
-                  {competitorCourses.length === 0 ? (
-                    <p className="text-[10px] opacity-60 text-center">No data</p>
-                  ) : (
-                    competitorCourses.map((item, i) => (
-                      <div key={i} className="flex justify-between items-center text-[9px] px-1">
-                        <span className="truncate max-w-[70%] opacity-80">{item.name}</span>
-                        <span className="font-bold text-red-400">{item.courses}</span>
-                      </div>
-                    ))
-                  )}
-                </div>
-              )}
-            </div>
-
-            {/* Students Enrolled */}
-            <div
-              className="rounded-md p-2"
-              style={{ background: 'rgba(54,162,235,0.08)' }}
-            >
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 bg-blue-500 shrink-0 rounded-full" />
-                <span className="font-semibold text-[10px]">Students Enrolled</span>
-              </div>
-              <p className="text-[8px] opacity-60 mt-0.5 pl-4">Score (0–100)</p>
-            </div>
-          </div>
-        )}
+    <div className={`card ${height} w-full p-8 flex flex-col overflow-hidden shadow-sm`}>
+      <h3 className='text-center mb-6 font-bold text-lg border-b border-[var(--border)] pb-3'>Gap Analysis: Courses vs Enrollment</h3>
+      <div className='flex-1 relative'>
+        <Radar data={data} options={options} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GapChart
+export default GapChart;

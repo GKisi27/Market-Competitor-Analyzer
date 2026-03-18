@@ -118,12 +118,14 @@ const PriceChart = () => {
     }
   };
 
-  return (
-    <div className='card h-96 w-full p-3'>
-      <h3 className='text-center mb-2 font-bold'>Common Courses Across Institutes</h3>
-      <Bar data={data} options={options} />
-    </div>
-  )
+    return (
+        <div className='card h-96 w-full p-6 flex flex-col overflow-hidden'>
+            <h3 className='text-center mb-6 font-bold text-lg border-b border-[var(--border)] pb-3'>Common Courses Across Institutes</h3>
+            <div className='flex-1 min-h-0'>
+                <Bar data={data} options={options} />
+            </div>
+        </div>
+    )
 }
 
 export default PriceChart

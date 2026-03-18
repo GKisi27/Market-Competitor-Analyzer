@@ -19,11 +19,11 @@ const GapAnalysisTop = () => {
             <p className="text-normal">Total Gap Courses</p>
           </div>
           <div className="flex flex-col justify-center text-center w-1/4 h-40 card">
-            <h2 className="text-4xl font-bold">28</h2>
+            <h2 className="text-4xl font-bold">10</h2>
             <p className="text-normal">Courses we offered</p>
           </div>
           <div className="flex flex-col justify-center text-center w-1/4 h-40 card">
-            <h2 className="text-4xl font-bold">15</h2>
+            <h2 className="text-4xl font-bold">5</h2>
             <p className="text-normal">Avg.courses per competitor</p>
           </div>
           <div className="flex flex-col justify-center text-center w-1/4 h-40 card">
