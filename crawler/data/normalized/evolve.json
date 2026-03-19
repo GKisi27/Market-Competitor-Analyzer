@@ -1,0 +1,99 @@
+{
+  "competitor": "evolve",
+  "source_url": "https://www.evolveithub.com/courses",
+  "scraped_at": "2026-02-25T06:01:34.913369+00:00",
+  "total_raw": 10,
+  "total_normalized": 10,
+  "courses": [
+    {
+      "course_name": "Digital Marketing",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/comprehensive-digital-marketing-course",
+      "level": "Beginner",
+      "discount": null
+    },
+    {
+      "course_name": "Web Development Using Laravel",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/web-development-using-laravel",
+      "level": "Intermediate",
+      "discount": null
+    },
+    {
+      "course_name": "PowerBI for Data Analysis",
+      "duration": "2 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/power-bi-for-data-analysis-and-visualization",
+      "level": "Intermediate",
+      "discount": null
+    },
+    {
+      "course_name": "Advance Java",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/advance-java",
+      "level": "Advanced",
+      "discount": null
+    },
+    {
+      "course_name": "Data Science With Python",
+      "duration": "4 months",
+      "price": 17000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/data-science-with-python",
+      "level": "Intermediate",
+      "discount": null
+    },
+    {
+      "course_name": "Programming using Core Java",
+      "duration": "2 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/-programming-using-core-java",
+      "level": "Beginner",
+      "discount": null
+    },
+    {
+      "course_name": "MEAN Stack Development",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/mean-stack-development",
+      "level": "Intermediate",
+      "discount": null
+    },
+    {
+      "course_name": "Mobile Development Using Flutter",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/mobile-development-using-flutter",
+      "level": "Intermediate",
+      "discount": null
+    },
+    {
+      "course_name": "MERN Stack Development",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/mern-stack-development-",
+      "level": "Intermediate",
+      "discount": null
+    },
+    {
+      "course_name": "Web Development Using Django",
+      "duration": "3 months",
+      "price": 15000.0,
+      "currency": "NPR",
+      "url": "https://www.evolveithub.com/course/web-development-using-django-framework",
+      "level": "Intermediate",
+      "discount": null
+    }
+  ]
+}

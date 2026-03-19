@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import TopSection from '../components/priceindex/TopSection'
-import ChartSection from '../components/priceindex/ChartSection'
-import CoursePriceSection from '../components/priceindex/CoursePriceSection'
+import TopSection from '../components/priceIndex/TopSection'
+import ChartSection from '../components/priceIndex/ChartSection'
+import CoursePriceSection from '../components/priceIndex/CoursePriceSection'
 
 const PriceIndex = () => {
   return (
-    <div className='bg-[#141A28] h-full w-full'> 
+    <div className='page'>
       <Navbar/>
       <TopSection/>
       <ChartSection/>

@@ -1,60 +1,42 @@
 import React from "react";
 
+const steps = [
+  {
+    number: "1",
+    title: "Create Account or Login",
+    description: "Sign up in seconds or log in to your existing account to access the full competitor analysis dashboard.",
+  },
+  {
+    number: "2",
+    title: "Monitor Competitors",
+    description: "Select Nepal's top IT training providers to track — compare their course prices, curriculum, and market positioning in real time.",
+  },
+  {
+    number: "3",
+    title: "Analyze & Act",
+    description: "Dive deep into gap analysis, pricing trends, and SWOT insights to make data-driven decisions for your institute.",
+  },
+];
+
 const HowItWorks = () => {
   return (
     <div className="mt-35 px-15">
-      {/* Title: Switches between dark gray and white text */}
-      <h2 className="text-4xl text-center text-gray-900 dark:text-white transition-colors">
-        How It Works
-      </h2>
+      <h2 className="text-4xl font-bold text-center text-[var(--text-primary)]">How It Works</h2>
+      <p className="text-center text-[var(--text-muted)] mt-2 text-base">Get started in three simple steps</p>
 
-      {/* 
-         Container: 
-         - bg-gray-50: Light mode background
-         - dark:bg-[#1B2537]: Dark mode background
-         - border-gray-200: Added a subtle border for light mode
-      */}
-      <div className="flex gap-4 mt-8 bg-gray-50 dark:bg-[#1B2537] border border-gray-200 dark:border-none rounded-2xl overflow-hidden transition-all duration-500 shadow-sm dark:shadow-none">
-        
-        {/* Step 1 */}
-        <div className="w-full h-60 py-8 flex space-y-4 flex-col items-center">
-          <h1 className="text-xl h-15 w-15 bg-[#025E90] text-white rounded-full flex justify-center items-center shadow-lg">
-            1
-          </h1>
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Connect Your Institute
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 text-center px-4">
-            Integrate Your Institute platforms
-          </p>
-        </div>
-
-        {/* Step 2 */}
-        <div className="w-full h-60 py-8 flex space-y-4 flex-col items-center border-x border-gray-200 dark:border-gray-800">
-          <h1 className="text-xl h-15 w-15 bg-[#025E90] text-white rounded-full flex justify-center items-center shadow-lg">
-            2
-          </h1>
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Monitor Competitors
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 text-center px-4">
-            Select the competitors to track the gap
-          </p>
-        </div>
-
-        {/* Step 3 */}
-        <div className="w-full h-60 py-8 flex space-y-4 flex-col items-center">
-          <h1 className="text-xl h-15 w-15 bg-[#025E90] text-white rounded-full flex justify-center items-center shadow-lg">
-            3
-          </h1>
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Generate Reports
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 text-center px-4">
-            Analyze insights and download reports
-          </p>
-        </div>
-
+      <div className="flex gap-6 mt-10">
+        {steps.map((step, i) => (
+          <div
+            key={i}
+            className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl w-1/3 py-8 px-6 flex flex-col items-center text-center space-y-4 transition-colors duration-300"
+          >
+            <div className="h-14 w-14 bg-[#025E90] rounded-full flex justify-center items-center text-white text-xl font-bold shrink-0">
+              {step.number}
+            </div>
+            <h2 className="text-2xl font-semibold text-[var(--text-primary)]">{step.title}</h2>
+            <p className="text-[var(--text-muted)] text-sm leading-relaxed">{step.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

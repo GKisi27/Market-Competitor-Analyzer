@@ -1,4 +1,74 @@
-*{
-    
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Light theme ── */
+:root {
+  --bg-primary:   #E2E5EE;
+  --bg-card:      #CDD2E0;  
+  --bg-input:     #F1F3F8;
+  --text-primary: #1E293B;  /* dark navy — visible on light bg */
+  --text-muted:   #64748B;
+  --border:       #B8C0D0;
 }
-@import 'tailwindcss'
+
+/* ── Dark theme ── */
+.dark {
+  --bg-primary:   #0D1321;
+  --bg-card:      #1B2537;
+  --bg-input:     #141A28;
+  --bg-navbar:    #1B2537;
+  --text-primary: #FFFFFF;
+  --text-muted:   #9CA3AF;
+  --border:       #2A3A55;
+}
+
+/* ── Global base ── */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.2s ease;
+}
+
+/* ── Reusable classes — use these instead of hardcoded bg-[] ── */
+.page {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.input-field {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  height: 44px;
+  padding: 0 1rem;
+  outline: none;
+  width: 100%;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease, border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #3B82F6;
+}
+
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

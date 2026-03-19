@@ -7,8 +7,7 @@ import Footer from '../components/homepage/Footer'
 
 const Homepage = () => {
   return (
-    /* This line is the "magic". It says: Be white normally, be navy in dark mode. */
-    <div className='bg-white dark:bg-[#141A28] w-full min-h-screen text-gray-900 dark:text-white transition-colors duration-500'>
+    <div className='page'>
       <HomeNav/>
       <HeroSection/>
       <Facilities/>

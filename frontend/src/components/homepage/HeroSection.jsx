@@ -27,16 +27,15 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Right Content - THE IMAGE IS BACK HERE */}
-        <div className="relative group">
-           <img 
-              src={heroImage} 
-              alt="Dashboard Preview" 
-              className="w-[550px] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 transition-transform duration-500 group-hover:scale-105"
-           />
-           {/* Decorative glow effect for dark mode */}
-           <div className="absolute -inset-1 bg-gradient-to-r from-sky-500 to-emerald-500 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000"></div>
-        </div>
+        <p
+          className="leading-5 text-lg tracking-tight"
+        >
+          Unlock actionable insights with gap analysis, price analysis, trends,
+          reports for modern organization
+        </p>
+       <button  
+        onClick={()=>navigate('/signup')}
+        className="bg-[#025E90] px-7 py-3 mt-10 rounded-lg active:scale-95 ">Get Started</button>
       </div>
 
       {/* The 3 Feature Cards at the bottom */}

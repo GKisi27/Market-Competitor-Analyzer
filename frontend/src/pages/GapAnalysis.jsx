@@ -5,7 +5,7 @@ import GapChartSection from '../components/gapAnalysis/GapChartSection'
 
 const GapAnalysis = () => {
   return (
-    <div className='bg-[#141A28] h-full w-full' >
+    <div className='page'>
       <Navbar/>
       <GapAnalysisTop/>
       <GapChartSection/>

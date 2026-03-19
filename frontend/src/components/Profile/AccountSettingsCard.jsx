@@ -1,88 +1,88 @@
 import React from 'react';
 
-const AccountSettingsCard = ({ formData, handleChange }) => {
+const AccountSettingsCard = ({ formData, handleChange, handleUpdate }) => {
   return (
-    <div className="bg-[#1B2537] w-207.5 rounded-xl p-10 font-semibold text-[24px] flex flex-col ">
+    <div className="card flex-1 p-8">
 
-      <p className="text-white">Account Settings</p>
-      <div className="h-px w-full bg-white mt-2.5"></div>
+      <h3 className="text-lg font-bold mb-1">Account Settings</h3>
+      <div className="h-px bg-[var(--border)] mb-6" />
 
-      {/* Full Name */}
-      <div className="mt-3 flex items-center gap-3">
-        <label htmlFor="fullName" className="text-white">
-          Full Name:
-        </label>
-        <input
-          id="fullName"
-          name="name"
-          type="text"
-          className="flex-1 bg-white rounded-lg h-10 outline-none text-black px-2 mr-15"
-        />
-      </div>
+      <form onSubmit={handleUpdate} className="flex flex-col gap-5 text-sm">
+        {/* Full Name */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm text-[var(--text-muted)] font-medium">Full Name</label>
+          <input
+            name="full_name"
+            value={formData.full_name || ''}
+            onChange={handleChange}
+            type="text"
+            className="input-field"
+          />
+        </div>
 
-      {/* Email */}
-      <div className="mt-3 flex items-center gap-3">
-        <label htmlFor="email" className="text-white ">
-          Email:
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          className="flex-1 bg-white rounded-lg h-10 outline-none text-black px-2 mr-15"
-        />
-      </div>
+        {/* Email */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm text-[var(--text-muted)] font-medium">Email Address</label>
+          <input
+            name="email"
+            value={formData.email || ''}
+            onChange={handleChange}
+            type="email"
+            className="input-field"
+          />
+        </div>
 
-      <p className="mt-6 text-white">Change Password</p>
-      <div className="h-px w-full bg-white mt-2.5"></div>
+        <div className="mt-2">
+          <h4 className="text-base font-bold mb-1">Change Password</h4>
+          <div className="h-px bg-[var(--border)] mb-5" />
+          <div className="flex flex-col gap-5">
 
-      {/* Current Password */}
-      <div className="mt-3 flex items-center gap-3">
-        <label htmlFor="currentPassword" className="text-white ">
-          Current Password:
-        </label>
-        <input
-          id="currentPassword"
-          name="currentPassword"
-          type="password"
-          className="flex-1 bg-white rounded-lg h-10 outline-none text-black px-2 mr-15"
-        />
-      </div>
+        {/* Current Password */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm text-[var(--text-muted)] font-medium">Current Password</label>
+              <input
+                name="currentPassword"
+                value={formData.currentPassword || ''}
+                onChange={handleChange}
+                type="password"
+                placeholder="Required to change password"
+                className="input-field"
+              />
+            </div>
 
-      {/* New Password */}
-      <div className="mt-3 flex items-center gap-3">
-        <label htmlFor="newPassword" className="text-white ">
-          New Password:
-        </label>
-        <input
-          id="newPassword"
-          name="newPassword"
-          type="password"
-          className="flex-1 bg-white rounded-lg h-10 outline-none text-black px-2 mr-15"
-        />
-      </div>
+        {/* New Password */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm text-[var(--text-muted)] font-medium">New Password</label>
+              <input
+                name="newPassword"
+                value={formData.newPassword || ''}
+                onChange={handleChange}
+                type="password"
+                className="input-field"
+              />
+            </div>
 
-      {/* Confirm Password */}
-      <div className="mt-3 flex items-center gap-3">
-        <label htmlFor="confirmNewPassword" className="text-white ">
-          Confirm Password:
-        </label>
-        <input
-          id="confirmNewPassword"
-          name="confirmNewPassword"
-          type="password"
-          className="flex-1 bg-white rounded-lg h-10 outline-none text-black px-2 mr-15"
-        />
-      </div>
+        {/* Confirm Password */}
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm text-[var(--text-muted)] font-medium">Confirm New Password</label>
+              <input
+                name="confirmNewPassword"
+                value={formData.confirmNewPassword || ''}
+                onChange={handleChange}
+                type="password"
+                className="input-field"
+              />
+            </div>
+          </div>
+        </div>
 
-      {/* Button */}
-      <div className="mt-8 flex justify-center">
         <button
-          className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer text-white px-6 py-2 rounded-lg text-base transition"
+          type="submit"
+          className="mt-2 w-full bg-blue-600 hover:bg-blue-700 transition-colors py-2.5 rounded-lg font-semibold text-sm cursor-pointer"
         >
           Save Changes
         </button>
-      </div>
+      </form>
 
     </div>
   );

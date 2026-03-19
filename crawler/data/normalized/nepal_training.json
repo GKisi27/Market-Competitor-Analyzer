@@ -1,0 +1,135 @@
+{
+  "competitor": "nepal_training",
+  "source_url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+  "scraped_at": "2026-02-25T06:01:34.913369+00:00",
+  "total_raw": 14,
+  "total_normalized": 14,
+  "courses": [
+    {
+      "course_name": "Basic PHP",
+      "duration": "50 hours or 2.5 months",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Advanced PHP course",
+      "duration": "30 hours or 1 month",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Basic and Advanced PHP Package",
+      "duration": "2 months",
+      "price": 7000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Java Course Training",
+      "duration": "45 hours or 1.5 months",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Advanced Java Course",
+      "duration": "2 months",
+      "price": 7000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "ASP.NET Course",
+      "duration": "45 hours or 2 months",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "C Programming",
+      "duration": "30 hours or 1 month",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "C++ Programming",
+      "duration": "30 hours or 1 month",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Android Course",
+      "duration": "1 month",
+      "price": 5000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Oracle training",
+      "duration": "45 hours",
+      "price": 6000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "WordPress Training",
+      "duration": "25 hours or 1 month",
+      "price": 4000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Web Development",
+      "duration": "2 months",
+      "price": 6000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Digital Marketing",
+      "duration": "1.5 months",
+      "price": 5000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    },
+    {
+      "course_name": "Graphics Designing",
+      "duration": "2 months",
+      "price": 6000.0,
+      "currency": "NPR",
+      "url": "https://www.nepaltrainingcentre.com/computer-course-fees-with-discount-and-duration/",
+      "level": null,
+      "discount": null
+    }
+  ]
+}
