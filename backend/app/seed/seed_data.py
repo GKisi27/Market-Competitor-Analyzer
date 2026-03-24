@@ -31,7 +31,7 @@ from app.models.metrics           import Metric
 from app.models.competitor_metrics import CompetitorMetric
 
 # Path to normalized JSON files
-NORMALIZED_DIR = (
+_LOCAL_NORMALIZED = (
     Path(__file__).resolve()
     .parent   # seed/
     .parent   # app/
@@ -39,6 +39,10 @@ NORMALIZED_DIR = (
     .parent   # project root
     / "crawler" / "data" / "normalized"
 )
+# Docker-mounted path (see docker-compose volume: ./crawler:/crawler)
+_DOCKER_NORMALIZED = Path("/crawler/data/normalized")
+
+NORMALIZED_DIR = _DOCKER_NORMALIZED if _DOCKER_NORMALIZED.exists() else _LOCAL_NORMALIZED
 
 def seed_roles(db) -> list[Role]:
     rows = [
@@ -57,7 +61,6 @@ def seed_users(db) -> list[User]:
     rows = [
         User(full_name="Gopal Kisi",      email="info@nextstepinfotech.com",   password_hash=get_password_hash("gopal123"),    status=True),
         User(full_name="Prasiddha Karki", email="prashidkarki321@gmail.com",   password_hash=get_password_hash("prasiddha123"),status=True), 
-
         User(full_name="Sumit Ghimire",   email="sumitghimire77@gmail.com",    password_hash=get_password_hash("sumit123"),   status=True),
         User(full_name="Anish Shrestha",  email="cresthanis@gmail.com",        password_hash=get_password_hash("anish123"),   status=True),
         User(full_name="Kashmir Lama",    email="kashmirlama@gmail.com",       password_hash=get_password_hash("kashmir123"), status=True),
