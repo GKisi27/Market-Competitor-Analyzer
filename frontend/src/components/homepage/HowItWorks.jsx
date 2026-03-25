@@ -20,20 +20,20 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <div className="mt-35 px-15">
-      <h2 className="text-4xl font-bold text-center text-[var(--text-primary)]">How It Works</h2>
-      <p className="text-center text-[var(--text-muted)] mt-2 text-base">Get started in three simple steps</p>
+    <div className="mt-20 md:mt-35 px-4 md:px-15">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-[var(--text-primary)]">How It Works</h2>
+      <p className="text-center text-[var(--text-muted)] mt-2 text-sm md:text-base">Get started in three simple steps</p>
 
-      <div className="flex gap-6 mt-10">
+      <div className="flex flex-col md:flex-row gap-6 mt-10">
         {steps.map((step, i) => (
           <div
             key={i}
-            className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl w-1/3 py-8 px-6 flex flex-col items-center text-center space-y-4 transition-colors duration-300"
+            className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl w-full md:w-1/3 py-8 px-6 flex flex-col items-center text-center space-y-4 transition-colors duration-300"
           >
             <div className="h-14 w-14 bg-[#025E90] rounded-full flex justify-center items-center text-white text-xl font-bold shrink-0">
               {step.number}
             </div>
-            <h2 className="text-2xl font-semibold text-[var(--text-primary)]">{step.title}</h2>
+            <h2 className="text-xl md:text-2xl font-semibold text-[var(--text-primary)]">{step.title}</h2>
             <p className="text-[var(--text-muted)] text-sm leading-relaxed">{step.description}</p>
           </div>
         ))}
