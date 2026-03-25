@@ -1,40 +1,53 @@
-# Docker Compose - Development
-# Full service stack for local development
-
-version: '3.8'
-
 services:
-  # Frontend service placeholder
-  frontend:
-    build:
-      context: .
-      dockerfile: docker/frontend/Dockerfile
-    # ports, environment, volumes to be configured
 
-  # Backend API placeholder
+  db:
+    image: postgres:15
+    container_name: mca_db
+    environment:
+      POSTGRES_DB: Market_competitor_Analyzer
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "0490036"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
   backend:
-    build:
-      context: .
-      dockerfile: docker/backend/Dockerfile
-    # ports, environment, volumes to be configured
+    build: ./backend
+    container_name: mca_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:0490036@db:5432/Market_competitor_Analyzer
+      SECRET_KEY: dev-secret-key-change-in-production
+      APP_ENV: development
+      PROJECT_NAME: Market Competitor Analyzer
+      API_V1_STR: /api/v1
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./crawler:/crawler
+    restart: unless-stopped
 
-  # Celery worker placeholder
-  worker:
-    build:
-      context: .
-      dockerfile: docker/workers/Dockerfile
-    # environment, volumes to be configured
+  frontend:
+    build: ./frontend
+    container_name: mca_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
 
-  # Redis broker
-  redis:
-    image: redis:7-alpine
-    # ports, volumes to be configured
-
-  # Database placeholder (PostgreSQL or MongoDB)
-  # Uncomment when database choice is finalized
-  # db:
-  #   image: postgres:15-alpine
-  #   OR
-  #   image: mongo:6
-
-# Networks and volumes to be configured
+volumes:
+  postgres_data:

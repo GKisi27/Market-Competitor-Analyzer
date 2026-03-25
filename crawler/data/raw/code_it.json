@@ -1,0 +1,13 @@
+{
+  "competitor": "code_it",
+  "source_url": "https://codeit.com.np/",
+  "courses": [
+    {"course_name": "Python for Beginners", "duration": "14 days", "price": 1499.0, "currency": "NPR", "url": "https://codeit.com.np/course/python-for-beginners", "level": "Beginner", "discount": null},
+    {"course_name": "Full Stack Web Development", "duration": "1 month", "price": 2499.0, "currency": "NPR", "url": "https://codeit.com.np/course/full-stack-web-development", "level": "Intermediate", "discount": null},
+    {"course_name": "React JS Bootcamp", "duration": "21 days", "price": 2499.0, "currency": "NPR", "url": "https://codeit.com.np/course/react-js-bootcamp", "level": "Intermediate", "discount": null},
+    {"course_name": "Data Science and Machine Learning", "duration": "21 days", "price": 1999.0, "currency": "NPR", "url": "https://codeit.com.np/course/data-science-machine-learning", "level": "Advanced", "discount": null},
+    {"course_name": "Node.js Backend Development", "duration": "21 days", "price": 1999.0, "currency": "NPR", "url": "https://codeit.com.np/course/nodejs-backend-development", "level": "Intermediate", "discount": null},
+    {"course_name": "UI/UX Design with Figma", "duration": "14 days", "price": 1499.0, "currency": "NPR", "url": "https://codeit.com.np/course/uiux-design-figma", "level": "Beginner", "discount": null},
+    {"course_name": "DevOps and Cloud Computing", "duration": "1 month", "price": 2999.0, "currency": "NPR", "url": "https://codeit.com.np/course/devops-cloud-computing", "level": "Advanced", "discount": null}
+  ]
+}

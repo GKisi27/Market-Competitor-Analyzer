@@ -1,0 +1,15 @@
+{
+  "competitor": "digital_pathsala",
+  "source_url": "https://digitalpathshalanepal.com/courses",
+  "courses": [
+    {"course_name": "Flutter", "duration": "30 days", "price": 999.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/flutter", "level": "Intermediate", "discount": null},
+    {"course_name": "MERN Stack", "duration": "75 days", "price": 1499.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/mern-stack-training-in-nepal", "level": "Intermediate", "discount": null},
+    {"course_name": "React Native", "duration": "45 days", "price": 1499.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/react-native-training-in-nepal", "level": "Intermediate", "discount": null},
+    {"course_name": "ReactJS", "duration": "30 days", "price": 999.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/react-js-training-in-nepal", "level": "Beginner", "discount": null},
+    {"course_name": "Web Development Bootcamp", "duration": "75 days", "price": 1499.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/web-development-training-in-nepal", "level": "Beginner", "discount": null},
+    {"course_name": "AI and ML", "duration": "4 months", "price": 4000.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/ai-ml-training-in-nepal", "level": "Advanced", "discount": null},
+    {"course_name": "Node.js", "duration": "30 days", "price": 999.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/node-js-training-in-nepal", "level": "Intermediate", "discount": null},
+    {"course_name": "Digital Marketing", "duration": "60 days", "price": 2000.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/digital-marketing-training-in-nepal", "level": "Beginner", "discount": null},
+    {"course_name": "Next.js", "duration": "30 days", "price": 999.0, "currency": "INR", "url": "https://digitalpathshalanepal.com/courses/next-js-training-in-nepal", "level": "Intermediate", "discount": null}
+  ]
+}
